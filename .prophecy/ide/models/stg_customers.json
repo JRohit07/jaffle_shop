@@ -1,0 +1,160 @@
+{
+  "id" : "stg_customers",
+  "metainfo" : {
+    "label" : "stg_customers",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "source##DyszvdVI" : {
+      "id" : "source##DyszvdVI",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "source",
+        "phase" : 0,
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+      },
+      "properties" : {
+        "table" : {
+          "name" : "raw_customers",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "gjsMMCbF",
+          "schema" : {
+            "providerType" : "BigQuery",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "renamed##dOYUKKtz" : {
+      "id" : "renamed##dOYUKKtz",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "renamed",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "usR9sO60##id", "usR9sO60##first_name", "usR9sO60##last_name" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "first_name"
+          }
+        }, {
+          "expression" : {
+            "expression" : "last_name"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "usR9sO60",
+          "schema" : {
+            "providerType" : "BigQuery",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "source"
+        } ],
+        "outputs" : [ {
+          "id" : "iLKk3Aqx",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_customers##Gpm4QZS0" : {
+      "id" : "stg_customers##Gpm4QZS0",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "stg_customers",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM renamed\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "dptFKQKR",
+          "slug" : "renamed"
+        } ],
+        "outputs" : [ {
+          "id" : "ufDbZhWy",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "bMqKYByK",
+    "source" : "source##DyszvdVI",
+    "sourcePort" : "gjsMMCbF",
+    "target" : "renamed##dOYUKKtz",
+    "targetPort" : "usR9sO60"
+  }, {
+    "id" : "x2LyE93L",
+    "source" : "renamed##dOYUKKtz",
+    "sourcePort" : "iLKk3Aqx",
+    "target" : "stg_customers##Gpm4QZS0",
+    "targetPort" : "dptFKQKR"
+  } ],
+  "component" : "Model"
+}
