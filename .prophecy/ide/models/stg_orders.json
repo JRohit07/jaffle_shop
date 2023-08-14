@@ -1,0 +1,175 @@
+{
+  "id" : "stg_orders",
+  "metainfo" : {
+    "label" : "stg_orders",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "source##Drz0S8BF" : {
+      "id" : "source##Drz0S8BF",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "source",
+        "phase" : 0,
+        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+      },
+      "properties" : {
+        "table" : {
+          "name" : "raw_orders",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "g5JrMLfQ",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "renamed##oWBgPScj" : {
+      "id" : "renamed##oWBgPScj",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "renamed",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "Lu4thL0d##id", "Lu4thL0d##user_id", "Lu4thL0d##order_date", "Lu4thL0d##status" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "alias" : "order_id"
+        }, {
+          "expression" : {
+            "expression" : "user_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "order_date"
+          }
+        }, {
+          "expression" : {
+            "expression" : "status"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Lu4thL0d",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "source"
+        } ],
+        "outputs" : [ {
+          "id" : "HHPmBfQ0",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_orders##Uk9BgRqB" : {
+      "id" : "stg_orders##Uk9BgRqB",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "stg_orders",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM renamed\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "U3lhVDab",
+          "slug" : "renamed"
+        } ],
+        "outputs" : [ {
+          "id" : "mXp9KCn5",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "vUP3P3S1",
+    "source" : "source##Drz0S8BF",
+    "sourcePort" : "g5JrMLfQ",
+    "target" : "renamed##oWBgPScj",
+    "targetPort" : "Lu4thL0d"
+  }, {
+    "id" : "sOxyEO13",
+    "source" : "renamed##oWBgPScj",
+    "sourcePort" : "HHPmBfQ0",
+    "target" : "stg_orders##Uk9BgRqB",
+    "targetPort" : "U3lhVDab"
+  } ],
+  "component" : "Model"
+}
