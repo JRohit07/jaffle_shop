@@ -1,0 +1,247 @@
+{
+  "id" : "orders",
+  "metainfo" : {
+    "label" : "orders",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : {
+          "payment_methods" : "['credit_card', 'coupon', 'bank_transfer', 'gift_card']"
+        }
+      }
+    }
+  },
+  "processes" : {
+    "order_payments##Iz3w2TwB" : {
+      "id" : "order_payments##Iz3w2TwB",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "order_payments",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "order_id"
+          }
+        }, {
+          "rowType" : "for",
+          "variable" : {
+            "expression" : "payment_method"
+          },
+          "iterable" : {
+            "expression" : "payment_methods"
+          },
+          "children" : [ {
+            "expression" : {
+              "expression" : "sum(CASE\n  WHEN payment_method = '{{ payment_method }}'\n    THEN amount\n  ELSE 0\nEND)"
+            },
+            "alias" : "{{payment_method}}_amount"
+          } ]
+        }, {
+          "expression" : {
+            "expression" : "sum(amount)"
+          },
+          "alias" : "total_amount"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "order_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QZAXB07c",
+          "slug" : "payments"
+        } ],
+        "outputs" : [ {
+          "id" : "DuDwDh4z",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "payments##Bz1GRTii" : {
+      "id" : "payments##Bz1GRTii",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "payments",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "stg_payments",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ersdYUrR",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "orders##iTkECcWo" : {
+      "id" : "orders##iTkECcWo",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "orders",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "stg_orders",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "xP8o0ioy",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "final##jd6kagdY" : {
+      "id" : "final##jd6kagdY",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "final",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "order_payments",
+          "expression" : {
+            "expression" : "orders.order_id = order_payments.order_id"
+          },
+          "joinType" : "LEFT"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "orders.order_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "orders.customer_id"
+          }
+        }, {
+          "expression" : {
+            "expression" : "orders.order_date"
+          }
+        }, {
+          "expression" : {
+            "expression" : "orders.status"
+          }
+        }, {
+          "rowType" : "for",
+          "variable" : {
+            "expression" : "payment_method"
+          },
+          "iterable" : {
+            "expression" : "payment_methods"
+          },
+          "children" : [ {
+            "expression" : {
+              "expression" : "order_payments.{{payment_method}}_amount"
+            }
+          } ]
+        }, {
+          "expression" : {
+            "expression" : "order_payments.total_amount"
+          },
+          "alias" : "amount"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "orders"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "cIW2Jk1t",
+          "slug" : "orders"
+        }, {
+          "id" : "klD9kp0G",
+          "slug" : "order_payments"
+        } ],
+        "outputs" : [ {
+          "id" : "nmgtfZxx",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "orders##M3tdkD1l" : {
+      "id" : "orders##M3tdkD1l",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "orders",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM final\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Qp3Mf1NY",
+          "slug" : "final"
+        } ],
+        "outputs" : [ {
+          "id" : "iMsLAefi",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "lNKiRP5O",
+    "source" : "payments##Bz1GRTii",
+    "sourcePort" : "ersdYUrR",
+    "target" : "order_payments##Iz3w2TwB",
+    "targetPort" : "QZAXB07c"
+  }, {
+    "id" : "KrZEh0i8",
+    "source" : "orders##iTkECcWo",
+    "sourcePort" : "xP8o0ioy",
+    "target" : "final##jd6kagdY",
+    "targetPort" : "cIW2Jk1t"
+  }, {
+    "id" : "RLqmPZCG",
+    "source" : "order_payments##Iz3w2TwB",
+    "sourcePort" : "DuDwDh4z",
+    "target" : "final##jd6kagdY",
+    "targetPort" : "klD9kp0G"
+  }, {
+    "id" : "JGBoGZ5m",
+    "source" : "final##jd6kagdY",
+    "sourcePort" : "nmgtfZxx",
+    "target" : "orders##M3tdkD1l",
+    "targetPort" : "Qp3Mf1NY"
+  } ],
+  "component" : "Model"
+}
