@@ -2,7 +2,7 @@
   "id" : "stg_customers",
   "metainfo" : {
     "label" : "stg_customers",
-    "autoLayout" : false,
+    "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -14,13 +14,11 @@
     }
   },
   "processes" : {
-    "source##pWWJQchc" : {
-      "id" : "source##pWWJQchc",
+    "source##q8YoDPme" : {
+      "id" : "source##q8YoDPme",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
-        "x" : 120,
-        "y" : 120,
         "phase" : 0,
         "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
       },
@@ -33,7 +31,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "MIz6Udnf",
+          "id" : "KqHTA3zm",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -58,18 +56,16 @@
         "isCustomOutputSchema" : false
       }
     },
-    "renamed##GoD0m4Wj" : {
-      "id" : "renamed##GoD0m4Wj",
+    "renamed##Bzu05CQ9" : {
+      "id" : "renamed##Bzu05CQ9",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
-        "x" : 320,
-        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "dRFfgpBg##id", "dRFfgpBg##first_name", "dRFfgpBg##last_name" ],
+        "columnsSelector" : [ "AHwzjT62##id", "AHwzjT62##first_name", "AHwzjT62##last_name" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -87,7 +83,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "dRFfgpBg",
+          "id" : "AHwzjT62",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -110,38 +106,17 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "L9iQ73At",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "hos4qflp",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "stg_customers##M2lPYyaE" : {
-      "id" : "stg_customers##M2lPYyaE",
+    "stg_customers##DtMOBnGL" : {
+      "id" : "stg_customers##DtMOBnGL",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_customers",
-        "x" : 520,
-        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -157,49 +132,11 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "iSbZXxba",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "eD3ilwui",
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "P87qHtcn",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "pfUVq2mP",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -207,17 +144,17 @@
     }
   },
   "connections" : [ {
-    "id" : "MtRRRrbu",
-    "source" : "source##pWWJQchc",
-    "sourcePort" : "MIz6Udnf",
-    "target" : "renamed##GoD0m4Wj",
-    "targetPort" : "dRFfgpBg"
+    "id" : "gEYf3J2T",
+    "source" : "source##q8YoDPme",
+    "sourcePort" : "KqHTA3zm",
+    "target" : "renamed##Bzu05CQ9",
+    "targetPort" : "AHwzjT62"
   }, {
-    "id" : "otpOb8H9",
-    "source" : "renamed##GoD0m4Wj",
-    "sourcePort" : "L9iQ73At",
-    "target" : "stg_customers##M2lPYyaE",
-    "targetPort" : "iSbZXxba"
+    "id" : "rw9LTKiU",
+    "source" : "renamed##Bzu05CQ9",
+    "sourcePort" : "hos4qflp",
+    "target" : "stg_customers##DtMOBnGL",
+    "targetPort" : "eD3ilwui"
   } ],
   "component" : "Model"
 }

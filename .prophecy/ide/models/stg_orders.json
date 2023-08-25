@@ -2,7 +2,7 @@
   "id" : "stg_orders",
   "metainfo" : {
     "label" : "stg_orders",
-    "autoLayout" : false,
+    "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -14,13 +14,11 @@
     }
   },
   "processes" : {
-    "source##w4OKOuaR" : {
-      "id" : "source##w4OKOuaR",
+    "source##Drz0S8BF" : {
+      "id" : "source##Drz0S8BF",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
-        "x" : 120,
-        "y" : 120,
         "phase" : 0,
         "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
       },
@@ -33,7 +31,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "nad3vqzg",
+          "id" : "g5JrMLfQ",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -63,18 +61,16 @@
         "isCustomOutputSchema" : false
       }
     },
-    "renamed##EtGh9lhL" : {
-      "id" : "renamed##EtGh9lhL",
+    "renamed##oWBgPScj" : {
+      "id" : "renamed##oWBgPScj",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
-        "x" : 320,
-        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "EV8TOEWE##id", "EV8TOEWE##user_id", "EV8TOEWE##order_date", "EV8TOEWE##status" ],
+        "columnsSelector" : [ "Lu4thL0d##id", "Lu4thL0d##user_id", "Lu4thL0d##order_date", "Lu4thL0d##status" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -97,7 +93,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "EV8TOEWE",
+          "id" : "Lu4thL0d",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -125,43 +121,17 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "S8NnChTR",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "HHPmBfQ0",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "stg_orders##nOnCYslr" : {
-      "id" : "stg_orders##nOnCYslr",
+    "stg_orders##Uk9BgRqB" : {
+      "id" : "stg_orders##Uk9BgRqB",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_orders",
-        "x" : 520,
-        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -177,59 +147,11 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "J0Jd1OO6",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "U3lhVDab",
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "KJzIh9YV",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
+          "id" : "mXp9KCn5",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -237,17 +159,17 @@
     }
   },
   "connections" : [ {
-    "id" : "LLDzTSn1",
-    "source" : "source##w4OKOuaR",
-    "sourcePort" : "nad3vqzg",
-    "target" : "renamed##EtGh9lhL",
-    "targetPort" : "EV8TOEWE"
+    "id" : "vUP3P3S1",
+    "source" : "source##Drz0S8BF",
+    "sourcePort" : "g5JrMLfQ",
+    "target" : "renamed##oWBgPScj",
+    "targetPort" : "Lu4thL0d"
   }, {
-    "id" : "EIUZoRLV",
-    "source" : "renamed##EtGh9lhL",
-    "sourcePort" : "S8NnChTR",
-    "target" : "stg_orders##nOnCYslr",
-    "targetPort" : "J0Jd1OO6"
+    "id" : "sOxyEO13",
+    "source" : "renamed##oWBgPScj",
+    "sourcePort" : "HHPmBfQ0",
+    "target" : "stg_orders##Uk9BgRqB",
+    "targetPort" : "U3lhVDab"
   } ],
   "component" : "Model"
 }

@@ -14,8 +14,8 @@
     }
   },
   "processes" : {
-    "source##twVqCQCs" : {
-      "id" : "source##twVqCQCs",
+    "source##nAAY3hqP" : {
+      "id" : "source##nAAY3hqP",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
@@ -31,7 +31,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "LOfHZcay",
+          "id" : "hSjiS3yF",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -61,8 +61,8 @@
         "isCustomOutputSchema" : false
       }
     },
-    "renamed##OIdyafj9" : {
-      "id" : "renamed##OIdyafj9",
+    "renamed##W41uTpmI" : {
+      "id" : "renamed##W41uTpmI",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
@@ -70,7 +70,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "DA9GoSMr##id", "DA9GoSMr##order_id", "DA9GoSMr##payment_method", "DA9GoSMr##amount" ],
+        "columnsSelector" : [ "LVpqGsSf##id", "LVpqGsSf##order_id", "LVpqGsSf##payment_method", "LVpqGsSf##amount" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -93,7 +93,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "DA9GoSMr",
+          "id" : "LVpqGsSf",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -121,38 +121,14 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "qTGXAnk7",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
+          "id" : "Jb0PX4Oj",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "stg_payments##wKlhtpLG" : {
-      "id" : "stg_payments##wKlhtpLG",
+    "stg_payments##rE5QeHiJ" : {
+      "id" : "stg_payments##rE5QeHiJ",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_payments",
@@ -171,59 +147,11 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "eSnxxCkA",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
+          "id" : "ao5H89b7",
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "gPTnZ3PB",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
+          "id" : "Qc7TAuvK",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -231,17 +159,17 @@
     }
   },
   "connections" : [ {
-    "id" : "NURBVfG7",
-    "source" : "source##twVqCQCs",
-    "sourcePort" : "LOfHZcay",
-    "target" : "renamed##OIdyafj9",
-    "targetPort" : "DA9GoSMr"
+    "id" : "Po71mRBB",
+    "source" : "source##nAAY3hqP",
+    "sourcePort" : "hSjiS3yF",
+    "target" : "renamed##W41uTpmI",
+    "targetPort" : "LVpqGsSf"
   }, {
-    "id" : "a6p7ijD5",
-    "source" : "renamed##OIdyafj9",
-    "sourcePort" : "qTGXAnk7",
-    "target" : "stg_payments##wKlhtpLG",
-    "targetPort" : "eSnxxCkA"
+    "id" : "a7KvEY6s",
+    "source" : "renamed##W41uTpmI",
+    "sourcePort" : "Jb0PX4Oj",
+    "target" : "stg_payments##rE5QeHiJ",
+    "targetPort" : "ao5H89b7"
   } ],
   "component" : "Model"
 }
