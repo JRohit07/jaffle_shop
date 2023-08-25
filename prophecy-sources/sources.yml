@@ -1,0 +1,128 @@
+---
+version: 2
+sources:
+- name: "sample_data_dev.tpch"
+  database: "sample_data_dev"
+  schema: "tpch"
+  config:
+    enabled: true
+  tables:
+  - name: "customer"
+    columns:
+    - name: "c_custkey"
+      dataType:
+        type: "Bigint"
+    - name: "c_name"
+      dataType:
+        type: "String"
+    - name: "c_address"
+      dataType:
+        type: "String"
+    - name: "c_nationkey"
+      dataType:
+        type: "Integer"
+    - name: "c_phone"
+      dataType:
+        type: "Char"
+    - name: "c_acctbal"
+      dataType:
+        type: "Decimal"
+    - name: "c_mktsegment"
+      dataType:
+        type: "Char"
+    - name: "c_comment"
+      dataType:
+        type: "String"
+- name: "dev.public"
+  database: "dev"
+  schema: "public"
+  config:
+    enabled: true
+  tables:
+  - name: "customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "first_order"
+      dataType:
+        type: "Date"
+    - name: "most_recent_order"
+      dataType:
+        type: "Date"
+    - name: "number_of_orders"
+      dataType:
+        type: "Bigint"
+    - name: "customer_lifetime_value"
+      dataType:
+        type: "Bigint"
+  - name: "listing"
+    columns:
+    - name: "listid"
+      dataType:
+        type: "Integer"
+    - name: "sellerid"
+      dataType:
+        type: "Integer"
+    - name: "eventid"
+      dataType:
+        type: "Integer"
+    - name: "dateid"
+      dataType:
+        type: "SmallInt"
+    - name: "numtickets"
+      dataType:
+        type: "SmallInt"
+    - name: "priceperticket"
+      dataType:
+        type: "Decimal"
+    - name: "totalprice"
+      dataType:
+        type: "Decimal"
+    - name: "listtime"
+      dataType:
+        type: "Timestamp"
+- name: "sample_data_dev.tickit"
+  database: "sample_data_dev"
+  schema: "tickit"
+  config:
+    enabled: true
+  tables:
+  - name: "listing"
+    description: "This dataset is a comprehensive representation of the listings available\
+      \ on the platform, including the seller ID, event ID, date ID, number of tickets,\
+      \ price per ticket, total price, and listing time. This data is useful for analyzing\
+      \ the platform's performance, identifying popular events, and monitoring ticket\
+      \ prices. It is also useful for developing marketing strategies and making data-driven\
+      \ decisions."
+    columns:
+    - name: "listid"
+      dataType:
+        type: "Integer"
+    - name: "sellerid"
+      dataType:
+        type: "Integer"
+    - name: "eventid"
+      dataType:
+        type: "Integer"
+    - name: "dateid"
+      dataType:
+        type: "SmallInt"
+    - name: "numtickets"
+      dataType:
+        type: "SmallInt"
+    - name: "priceperticket"
+      dataType:
+        type: "Decimal"
+    - name: "totalprice"
+      dataType:
+        type: "Decimal"
+    - name: "listtime"
+      dataType:
+        type: "Timestamp"

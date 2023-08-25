@@ -1,0 +1,12 @@
+{
+  "generic_round" : {
+    "name" : "generic_round",
+    "macroType" : "expression",
+    "definition" : "round(1034.212, 2)",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ ]
+    },
+    "staleState" : "none"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name" : "jaffle_shop",
+  "fileSystem" : {
+    "type" : "Folder",
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "providerType" : "redshift",
+  "fabricId" : "6346",
+  "prophecyIDEFolder" : {
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "externalSources" : {
+    "type" : "Project",
+    "name" : "",
+    "children" : [ {
+      "type" : "Database",
+      "name" : "awsdatacatalog",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "dev",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "padb_harvest",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "qa_database",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "sample_data_dev",
+      "children" : [ ]
+    } ]
+  },
+  "dependenciesContainer" : {
+    "dependencies" : { },
+    "prophecyProjectDependencies" : { }
+  },
+  "frontEndLanguage" : "sql"
+}

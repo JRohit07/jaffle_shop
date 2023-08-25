@@ -1,0 +1,85 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "5646",
+    "jobId" : "jobs/job_airflow_redshift",
+    "name" : "job_airflow_redshift",
+    "schedule" : "0 0 0 1/1 * ? *",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "prophecy_internal_jobs",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "5646",
+      "name" : "SQL_DBT_FABRIC",
+      "clusterSizes" : {
+        "default" : "prophecy_internal_jobs",
+        "availableClusterSizes" : [ "prophecy_internal_jobs" ]
+      }
+    } ]
+  },
+  "processes" : {
+    "M2foIKOZ-Q0Jpa12MCLoH$$BwGWcsOXPLJ-s3l6iuOoK" : {
+      "id" : "M2foIKOZ-Q0Jpa12MCLoH$$BwGWcsOXPLJ-s3l6iuOoK",
+      "component" : "DBT",
+      "metadata" : {
+        "label" : "DBT_0",
+        "slug" : "DBT_0",
+        "x" : 440,
+        "y" : 200
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3LAPSabkuW-mprjrgcAwW$$JlYozB5_YMTYlpe_YUWZR",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "kryMc3CzQJHOrZHv9LDQJ$$xKQKmad7XzNoqDsLHCijL",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "execSeed" : true,
+        "execRun" : true,
+        "gitEntity" : "branch",
+        "projectId" : "",
+        "runOnlyModel" : "false",
+        "loadingModels" : false,
+        "profile" : "run_profile",
+        "gitEntityValue" : "",
+        "execDeps" : true,
+        "execTest" : false,
+        "currentProjectModels" : [ ]
+      }
+    }
+  },
+  "connections" : [ ]
+}

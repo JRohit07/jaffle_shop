@@ -1,0 +1,51 @@
+{
+  "select_distinct_columns" : {
+    "name" : "select_distinct_columns",
+    "macroType" : "query",
+    "definition" : "select * from {{table}} where {{col}} < 300",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "table",
+        "kind" : {
+          "type" : "table"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      }, {
+        "name" : "col",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false,
+        "isReferenced" : false
+      } ]
+    },
+    "staleState" : "none",
+    "propertiesFile" : {
+      "name" : "macros",
+      "content" : "---\nversion: 2\nmacros:\n- name: \"select_distinct_columns\"\n  arguments:\n  - name: \"table\"\n    type: \"table\"\n    description: \"{\\\"ProphecyType\\\": \\\"table\\\"}\"\n  - name: \"col\"\n    type: \"value\"\n    description: \"{\\\"ProphecyType\\\": \\\"value\\\"}\"\n  macroType: \"query\"\n",
+      "path" : "jaffle_shop/macros/macros.yml",
+      "projectConfiguration" : null,
+      "folderConfiguration" : {
+        "version" : 2,
+        "macros" : [ {
+          "name" : "select_distinct_columns",
+          "arguments" : [ {
+            "name" : "table",
+            "type" : "table",
+            "description" : "{\"ProphecyType\": \"table\"}"
+          }, {
+            "name" : "col",
+            "type" : "value",
+            "description" : "{\"ProphecyType\": \"value\"}"
+          } ],
+          "macroType" : "query"
+        } ]
+      },
+      "packagesYml" : null
+    }
+  }
+}

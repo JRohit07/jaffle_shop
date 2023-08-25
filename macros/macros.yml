@@ -1,0 +1,12 @@
+---
+version: 2
+macros:
+- name: "select_distinct_columns"
+  arguments:
+  - name: "table"
+    type: "table"
+    description: "{\"ProphecyType\": \"table\"}"
+  - name: "col"
+    type: "value"
+    description: "{\"ProphecyType\": \"value\"}"
+  macroType: "query"

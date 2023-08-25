@@ -2,7 +2,7 @@
   "id" : "stg_orders",
   "metainfo" : {
     "label" : "stg_orders",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -19,6 +19,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
+        "x" : 120,
+        "y" : 120,
         "phase" : 0,
         "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
       },
@@ -66,6 +68,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
+        "x" : 320,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -122,6 +126,30 @@
         } ],
         "outputs" : [ {
           "id" : "S8NnChTR",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -132,6 +160,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_orders",
+        "x" : 520,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -148,10 +178,58 @@
       "ports" : {
         "inputs" : [ {
           "id" : "J0Jd1OO6",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "renamed"
         } ],
         "outputs" : [ {
           "id" : "KJzIh9YV",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
