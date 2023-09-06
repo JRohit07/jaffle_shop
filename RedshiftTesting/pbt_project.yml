@@ -20,10 +20,117 @@ functions:
   udafs: {}
   expressions: {}
 subgraphs: {}
-sqlModels: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/customers_model:
+    name: customers_model
+    schema:
+      providerType: Redshift
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: first_order
+        dataType:
+          type: Date
+      - name: most_recent_order
+        dataType:
+          type: Date
+      - name: number_of_orders
+        dataType:
+          type: Bigint
+      - name: customer_lifetime_value
+        dataType:
+          type: Bigint
+    description: null
+    author: jrohit+e2e@prophecy.io
+    files:
+    - models/customers_model.sql
+    - .prophecy/ide/models/customers_model.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-09-05 09:11:16'
 sqlMacros: {}
 sqlSeeds: {}
-sqlSources: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/dev_jsr:
+    name: dev.jsr
+    description: null
+    author: jrohit+e2e@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2023-09-05 09:11:21'
+    tables:
+    - name: customers
+      schema:
+        providerType: redshift
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: first_order
+          dataType:
+            type: Date
+        - name: most_recent_order
+          dataType:
+            type: Date
+        - name: number_of_orders
+          dataType:
+            type: Bigint
+        - name: customer_lifetime_value
+          dataType:
+            type: Bigint
+      description: null
+      author: jrohit+e2e@prophecy.io
+      createdAt: '2023-09-05 09:11:21'
+  .prophecy/metadata/sqlsources/dev_public:
+    name: dev.public
+    description: null
+    author: jrohit+e2e@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2023-09-05 09:11:34'
+    tables:
+    - name: customers
+      schema:
+        providerType: redshift
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: first_order
+          dataType:
+            type: Date
+        - name: most_recent_order
+          dataType:
+            type: Date
+        - name: number_of_orders
+          dataType:
+            type: Bigint
+        - name: customer_lifetime_value
+          dataType:
+            type: Bigint
+      description: null
+      author: jrohit+e2e@prophecy.io
+      createdAt: '2023-09-05 09:11:34'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

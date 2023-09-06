@@ -1,0 +1,1332 @@
+{
+  "name" : "Redshift_project_basic",
+  "fileSystem" : {
+    "type" : "Folder",
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "providerType" : "redshift",
+  "fabricId" : "10691",
+  "prophecyIDEFolder" : {
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "externalSources" : {
+    "type" : "Project",
+    "name" : "",
+    "children" : [ {
+      "type" : "Database",
+      "name" : "awsdatacatalog",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "dev",
+      "children" : [ {
+        "type" : "Schema",
+        "name" : "jsr",
+        "tables" : {
+          "raw_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "raw_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "raw_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "dim_product" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "product_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_subcategory_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_category_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "payment_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "fct_sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "sales_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "creditcard_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ship_address_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_status_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "production",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "public",
+        "tables" : {
+          "test" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "raw_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "raw_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "custommodel" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "raw_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "event" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "eventname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "starttime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "users" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "userid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "username",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "firstname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "lastname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "phone",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "likesports",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "liketheatre",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeconcerts",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likejazz",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeclassical",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeopera",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likerock",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likevegas",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likebroadway",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likemusicals",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "stg_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "listing" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "stg_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "payment_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "date" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "caldate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "week",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "month",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "qtr",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "holiday",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "salesid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "buyerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "qtysold",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "pricepaid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "commission",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "saletime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "category" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catgroup",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catdesc",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "venue" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "venuename",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuecity",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuestate",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "venueseats",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "public_default",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "public_default_new",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "public_rohit",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "public_rohit2",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "sales",
+        "children" : [ ]
+      } ]
+    }, {
+      "type" : "Database",
+      "name" : "padb_harvest",
+      "children" : [ ]
+    }, {
+      "type" : "Database",
+      "name" : "sample_data_dev",
+      "children" : [ {
+        "type" : "Schema",
+        "name" : "public",
+        "tables" : { }
+      }, {
+        "type" : "Schema",
+        "name" : "tickit",
+        "tables" : {
+          "event" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "eventname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "starttime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "users" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "userid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "username",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "firstname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "lastname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "phone",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "likesports",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "liketheatre",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeconcerts",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likejazz",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeclassical",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeopera",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likerock",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likevegas",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likebroadway",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likemusicals",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "listing" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "date" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "caldate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "week",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "month",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "qtr",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "holiday",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "salesid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "buyerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "qtysold",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "pricepaid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "commission",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "saletime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "category" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catgroup",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catdesc",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "venue" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "venuename",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuecity",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuestate",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "venueseats",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "tpcds",
+        "children" : [ ]
+      }, {
+        "type" : "Schema",
+        "name" : "tpch",
+        "children" : [ ]
+      } ]
+    } ]
+  },
+  "dependenciesContainer" : {
+    "dependencies" : { },
+    "prophecyProjectDependencies" : { }
+  },
+  "frontEndLanguage" : "sql"
+}

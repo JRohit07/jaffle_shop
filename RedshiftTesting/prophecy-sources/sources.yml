@@ -1,0 +1,61 @@
+---
+version: 2
+sources:
+- name: "dev.jsr"
+  database: "dev"
+  schema: "jsr"
+  config:
+    enabled: true
+  tables:
+  - name: "customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "first_order"
+      dataType:
+        type: "Date"
+    - name: "most_recent_order"
+      dataType:
+        type: "Date"
+    - name: "number_of_orders"
+      dataType:
+        type: "Bigint"
+    - name: "customer_lifetime_value"
+      dataType:
+        type: "Bigint"
+- name: "dev.public"
+  database: "dev"
+  schema: "public"
+  config:
+    enabled: true
+  tables:
+  - name: "customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "first_order"
+      dataType:
+        type: "Date"
+    - name: "most_recent_order"
+      dataType:
+        type: "Date"
+    - name: "number_of_orders"
+      dataType:
+        type: "Bigint"
+    - name: "customer_lifetime_value"
+      dataType:
+        type: "Bigint"
