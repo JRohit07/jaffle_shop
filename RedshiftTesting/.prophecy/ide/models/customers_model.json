@@ -125,7 +125,7 @@
       "metadata" : {
         "label" : "customers",
         "slug" : "customers",
-        "x" : -320,
+        "x" : -300,
         "y" : 40,
         "phase" : 0
       },
@@ -192,7 +192,7 @@
       "metadata" : {
         "label" : "customers_1",
         "slug" : "customers_1",
-        "x" : -180,
+        "x" : -300,
         "y" : 200,
         "phase" : 0
       },
