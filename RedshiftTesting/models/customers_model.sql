@@ -10,7 +10,7 @@ customers AS (
 
   SELECT * 
   
-  FROM {{ source('dev.jsr', 'customers') }}
+  FROM {{ source('dev.public', 'customers') }}
 
 ),
 

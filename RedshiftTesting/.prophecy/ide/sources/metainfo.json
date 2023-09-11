@@ -28,11 +28,490 @@
       "children" : [ {
         "type" : "Schema",
         "name" : "jsr",
-        "children" : [ ]
+        "tables" : {
+          "raw_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "raw_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "user_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "raw_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "dim_product" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "product_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_subcategory_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_category_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "stg_payments" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "payment_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "fct_sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "sales_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "creditcard_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ship_address_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_status_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "orders" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "customers" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          }
+        }
       }, {
         "type" : "Schema",
         "name" : "production",
-        "children" : [ ]
+        "tables" : {
+          "product" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "safetystocklevel",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "finishedgoodsflag",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "makeflag",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "reorderpoint",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productmodelid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "weightunitmeasurecode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "standardcost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "listprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "daystomanufacture",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productline",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sellstartdate",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "weight",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "productcategory" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "productsubcategory" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          }
+        }
       }, {
         "type" : "Schema",
         "name" : "public",
@@ -689,7 +1168,2593 @@
     }, {
       "type" : "Database",
       "name" : "sample_data_dev",
-      "children" : [ ]
+      "children" : [ {
+        "type" : "Schema",
+        "name" : "public",
+        "tables" : { }
+      }, {
+        "type" : "Schema",
+        "name" : "tickit",
+        "tables" : {
+          "event" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "eventname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "starttime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "users" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "userid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "username",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "firstname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "lastname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "phone",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "likesports",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "liketheatre",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeconcerts",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likejazz",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeclassical",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likeopera",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likerock",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likevegas",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likebroadway",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            }, {
+              "name" : "likemusicals",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "listing" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "date" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "caldate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "week",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "month",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "qtr",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "year",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "holiday",
+              "dataType" : {
+                "type" : "Boolean"
+              }
+            } ]
+          },
+          "sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "salesid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "buyerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "qtysold",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "pricepaid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "commission",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "saletime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "category" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "catid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "catgroup",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catname",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "catdesc",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "venue" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "venueid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "venuename",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuecity",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "venuestate",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "venueseats",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "tpcds",
+        "tables" : {
+          "time_dim" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "t_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "t_time_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "t_time",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "t_hour",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "t_minute",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "t_second",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "t_am_pm",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "t_shift",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "t_sub_shift",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "t_meal_time",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "inventory" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "inv_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "inv_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "inv_warehouse_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "inv_quantity_on_hand",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "web_page" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "wp_web_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_web_page_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "wp_rec_start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "wp_rec_end_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "wp_creation_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_access_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_autogen_flag",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "wp_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_url",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "wp_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "wp_char_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_link_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_image_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wp_max_ad_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "customer_demographics" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "cd_demo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cd_gender",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cd_marital_status",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cd_education_status",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cd_purchase_estimate",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cd_credit_rating",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cd_dep_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cd_dep_employed_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cd_dep_college_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "store_returns" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "sr_returned_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_return_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_store_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_reason_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_ticket_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "sr_return_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sr_return_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_return_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_return_amt_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_fee",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_return_ship_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_refunded_cash",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_reversed_charge",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_store_credit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "sr_net_loss",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "web_site" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "web_site_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "web_site_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_rec_start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "web_rec_end_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "web_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_open_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "web_close_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "web_class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_mkt_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "web_mkt_class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_mkt_desc",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_market_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_company_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "web_company_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_street_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_street_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_street_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_suite_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_county",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_zip",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "web_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "web_gmt_offset",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "web_tax_percentage",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "catalog_sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "cs_sold_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_sold_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_bill_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_bill_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_bill_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_bill_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_call_center_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_catalog_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_ship_mode_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_warehouse_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_promo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_order_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cs_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cs_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_discount_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_coupon_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_ext_ship_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_net_paid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_net_paid_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_net_paid_inc_ship",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_net_paid_inc_ship_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cs_net_profit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "dbgen_version" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "dv_version",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "dv_create_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "dv_create_time",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            }, {
+              "name" : "dv_cmdline_args",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "ship_mode" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "sm_ship_mode_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sm_ship_mode_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "sm_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "sm_code",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "sm_carrier",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "sm_contract",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "web_sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "ws_sold_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_sold_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_bill_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_bill_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_bill_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_bill_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_web_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_web_site_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_ship_mode_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_warehouse_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_promo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_order_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "ws_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ws_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_discount_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_coupon_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_ext_ship_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_net_paid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_net_paid_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_net_paid_inc_ship",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_net_paid_inc_ship_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ws_net_profit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "store" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "s_store_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_store_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_rec_start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "s_rec_end_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "s_closed_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_store_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_number_employees",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_floor_space",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_hours",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_market_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_geography_class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_market_desc",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_market_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_division_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_division_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_company_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "s_company_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_street_number",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_street_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_street_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_suite_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_county",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_zip",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "s_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "s_gmt_offset",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "s_tax_precentage",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "customer_address" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "ca_address_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ca_address_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_street_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_street_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ca_street_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_suite_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ca_county",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ca_state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_zip",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "ca_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ca_gmt_offset",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ca_location_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "reason" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "r_reason_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "r_reason_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "r_reason_desc",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "catalog_page" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "cp_catalog_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cp_catalog_page_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cp_start_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cp_end_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cp_department",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cp_catalog_number",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cp_catalog_page_number",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cp_description",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cp_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "promotion" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "p_promo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "p_promo_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_start_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "p_end_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "p_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "p_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "p_response_target",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "p_promo_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_dmail",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_email",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_catalog",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_tv",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_radio",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_press",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_event",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_demo",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_channel_details",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "p_purpose",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "p_discount_active",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "customer" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "c_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_customer_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_current_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_current_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_current_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_first_shipto_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_first_sales_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_salutation",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_first_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_last_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_preferred_cust_flag",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_birth_day",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_birth_month",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_birth_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "c_birth_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "c_login",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_email_address",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "c_last_review_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "catalog_returns" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "cr_returned_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_returned_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_refunded_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_refunded_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_refunded_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_refunded_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_returning_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_returning_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_returning_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_returning_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_call_center_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_catalog_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_ship_mode_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_warehouse_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_reason_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_order_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "cr_return_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cr_return_amount",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_return_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_return_amt_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_fee",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_return_ship_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_refunded_cash",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_reversed_charge",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_store_credit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cr_net_loss",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "call_center" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "cc_call_center_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_call_center_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_rec_start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "cc_rec_end_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "cc_closed_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_open_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_employees",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_sq_ft",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_hours",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_mkt_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_mkt_class",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_mkt_desc",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_market_manager",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_division",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_division_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_company",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cc_company_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_street_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_street_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_street_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_suite_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_county",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_zip",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "cc_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "cc_gmt_offset",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "cc_tax_percentage",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "web_returns" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "wr_returned_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_returned_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_refunded_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_refunded_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_refunded_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_refunded_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_returning_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_returning_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_returning_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_returning_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_web_page_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_reason_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_order_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "wr_return_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "wr_return_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_return_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_return_amt_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_fee",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_return_ship_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_refunded_cash",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_reversed_charge",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_account_credit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "wr_net_loss",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "store_sales" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "ss_sold_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_sold_time_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_customer_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_cdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_hdemo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_addr_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_store_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_promo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_ticket_number",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "ss_quantity",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ss_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_ext_discount_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_ext_sales_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_ext_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_ext_list_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_ext_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_coupon_amt",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_net_paid",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_net_paid_inc_tax",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "ss_net_profit",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "household_demographics" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "hd_demo_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "hd_income_band_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "hd_buy_potential",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "hd_dep_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "hd_vehicle_count",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "date_dim" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "d_date_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_date_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "d_month_seq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_week_seq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_quarter_seq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_dow",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_moy",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_dom",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_qoy",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_fy_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_fy_quarter_seq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_fy_week_seq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_day_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_quarter_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_holiday",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_weekend",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_following_holiday",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_first_dom",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_last_dom",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_same_day_ly",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_same_day_lq",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "d_current_day",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_current_week",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_current_month",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_current_quarter",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "d_current_year",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          },
+          "income_band" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "ib_income_band_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ib_lower_bound",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "ib_upper_bound",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "warehouse" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "w_warehouse_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "w_warehouse_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_warehouse_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "w_warehouse_sq_ft",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "w_street_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_street_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "w_street_type",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_suite_number",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_city",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "w_county",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "w_state",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_zip",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "w_country",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "w_gmt_offset",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "item" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "i_item_sk",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_item_id",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_rec_start_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "i_rec_end_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "i_item_desc",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "i_current_price",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "i_wholesale_cost",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "i_brand_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_brand",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_class_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_class",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_category_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_category",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_manufact_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_manufact",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_size",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_formulation",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_color",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_units",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_container",
+              "dataType" : {
+                "type" : "Char"
+              }
+            }, {
+              "name" : "i_manager_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "i_product_name",
+              "dataType" : {
+                "type" : "Char"
+              }
+            } ]
+          }
+        }
+      }, {
+        "type" : "Schema",
+        "name" : "tpch",
+        "children" : [ ]
+      } ]
     } ]
   },
   "dependenciesContainer" : {
