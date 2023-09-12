@@ -12,7 +12,7 @@ jobs:
   jobs/Job_redshift:
     name: Job_redshift
     description: ''
-    fabricUID: 10920
+    fabricUID: 10097
     scheduler:
       MWAA: {}
     cloudProvider: null

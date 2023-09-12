@@ -1,3 +1,9 @@
+{{
+  config({    
+    "materialized": "table"
+  })
+}}
+
 WITH customers_1 AS (
 
   SELECT * 
@@ -18,13 +24,13 @@ SetOperation_1 AS (
 
   SELECT * 
   
-  FROM customers AS in0
+  FROM customers_1 AS in0
   
   UNION
   
   SELECT * 
   
-  FROM customers_1 AS in1
+  FROM customers AS in1
 
 )
 

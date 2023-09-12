@@ -1,7 +1,7 @@
 {
   "metainfo" : {
     "type" : "MWAA",
-    "fabricId" : "10920",
+    "fabricId" : "10097",
     "jobId" : "jobs/Job_redshift",
     "name" : "Job_redshift",
     "dagName" : "uitesting_jrohit_e2e_Redshift_project_basic_Job_redshift",
@@ -15,7 +15,7 @@
     },
     "maxConcurrentRuns" : 1,
     "processDefaultSettings" : {
-      "retries" : 0,
+      "retries" : 1,
       "ignore_first_depends_on_past" : true,
       "do_xcom_push" : true
     },
