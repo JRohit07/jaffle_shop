@@ -32,10 +32,13 @@ jobs:
     enabled: null
     createdAt: '2023-08-22 10:43:20'
     author: jrohit+e2e@prophecy.io
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
 functions:
   author: null
   createdAt: '2023-08-14 06:59:40'
-  gems: {}
   udfs: {}
   udafs: {}
   expressions: {}
@@ -393,59 +396,14 @@ sqlSources:
     - name: customers
       schema:
         providerType: redshift
-        fields:
-        - name: customer_id
-          dataType:
-            type: Integer
-        - name: first_name
-          dataType:
-            type: String
-        - name: last_name
-          dataType:
-            type: String
-        - name: first_order
-          dataType:
-            type: Date
-        - name: most_recent_order
-          dataType:
-            type: Date
-        - name: number_of_orders
-          dataType:
-            type: Bigint
-        - name: customer_lifetime_value
-          dataType:
-            type: Bigint
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
         providerType: redshift
-        fields:
-        - name: listid
-          dataType:
-            type: Integer
-        - name: sellerid
-          dataType:
-            type: Integer
-        - name: eventid
-          dataType:
-            type: Integer
-        - name: dateid
-          dataType:
-            type: SmallInt
-        - name: numtickets
-          dataType:
-            type: SmallInt
-        - name: priceperticket
-          dataType:
-            type: Decimal
-        - name: totalprice
-          dataType:
-            type: Decimal
-        - name: listtime
-          dataType:
-            type: Timestamp
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:08:51'
@@ -460,31 +418,7 @@ sqlSources:
     - name: listing
       schema:
         providerType: redshift
-        fields:
-        - name: listid
-          dataType:
-            type: Integer
-        - name: sellerid
-          dataType:
-            type: Integer
-        - name: eventid
-          dataType:
-            type: Integer
-        - name: dateid
-          dataType:
-            type: SmallInt
-        - name: numtickets
-          dataType:
-            type: SmallInt
-        - name: priceperticket
-          dataType:
-            type: Decimal
-        - name: totalprice
-          dataType:
-            type: Decimal
-        - name: listtime
-          dataType:
-            type: Timestamp
+        fields: []
       description: This dataset is a comprehensive representation of the listings
         available on the platform, including the seller ID, event ID, date ID, number
         of tickets, price per ticket, total price, and listing time. This data is
@@ -504,31 +438,7 @@ sqlSources:
     - name: customer
       schema:
         providerType: redshift
-        fields:
-        - name: c_custkey
-          dataType:
-            type: Bigint
-        - name: c_name
-          dataType:
-            type: String
-        - name: c_address
-          dataType:
-            type: String
-        - name: c_nationkey
-          dataType:
-            type: Integer
-        - name: c_phone
-          dataType:
-            type: Char
-        - name: c_acctbal
-          dataType:
-            type: Decimal
-        - name: c_mktsegment
-          dataType:
-            type: Char
-        - name: c_comment
-          dataType:
-            type: String
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:43'
