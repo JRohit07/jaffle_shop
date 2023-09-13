@@ -4,7 +4,7 @@
   })
 }}
 
-WITH customers_1 AS (
+WITH customers AS (
 
   SELECT * 
   
@@ -12,7 +12,7 @@ WITH customers_1 AS (
 
 ),
 
-customers AS (
+customers_1 AS (
 
   SELECT * 
   

@@ -1,0 +1,53 @@
+{
+  "metainfo" : {
+    "type" : "Composer",
+    "fabricId" : "10773",
+    "jobId" : "jobs/composer_redshift",
+    "name" : "composer_redshift",
+    "dagName" : "uitesting_jrohit_e2e_Redshift_project_basic_composer_redshift",
+    "schedule" : "0 0/1 * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "do_xcom_push" : true
+    },
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "availableFabrics" : [ {
+      "id" : "10097",
+      "name" : "EMR_Redshift_airflow_operator_fabric"
+    }, {
+      "id" : "10674",
+      "name" : "PM_AIRFLOW_FABRIC",
+      "trialStartDate" : 1693821784922
+    }, {
+      "id" : "10773",
+      "name" : "Redshift_airflow_composer"
+    }, {
+      "id" : "10173",
+      "name" : "EMR_redshift_composer"
+    }, {
+      "id" : "10920",
+      "name" : "MWAA_fabric"
+    } ],
+    "catchup" : true,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    }
+  },
+  "processes" : { },
+  "connections" : [ ]
+}

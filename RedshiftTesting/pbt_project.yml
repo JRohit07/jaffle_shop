@@ -32,6 +32,29 @@ jobs:
     enabled: false
     createdAt: '2023-09-11 03:41:16'
     author: jrohit+e2e@prophecy.io
+  jobs/composer_redshift:
+    name: composer_redshift
+    description: ''
+    fabricUID: 10773
+    scheduler:
+      Composer: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0 0/1 * * *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2023-09-12 12:13:01'
+    author: jrohit+e2e@prophecy.io
 gemContainer:
   languageVersion: ''
   gemLibsVersion: ''
