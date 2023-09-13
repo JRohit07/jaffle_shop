@@ -30,7 +30,7 @@
       "trialStartDate" : 1693821784922
     }, {
       "id" : "10773",
-      "name" : "Redshift_airflow_composer"
+      "name" : "Redshift_trino_airflow_composer"
     }, {
       "id" : "10173",
       "name" : "EMR_redshift_composer"
@@ -48,6 +48,89 @@
       "selected" : "default"
     }
   },
-  "processes" : { },
+  "processes" : {
+    "yUp7mLUXnOKS1CtzQC8bg$$P2_6qdvz4AEb0FzVimmgV" : {
+      "id" : "yUp7mLUXnOKS1CtzQC8bg$$P2_6qdvz4AEb0FzVimmgV",
+      "component" : "DBT",
+      "metadata" : {
+        "label" : "DBT_0",
+        "slug" : "DBT_0",
+        "x" : -240,
+        "y" : -120
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_Qxm5Tm3Xt5N6GYFKf5S4$$P5BppM7KXUW1axARL1fKT",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "bLMjSexBOPfTZDxW56ZdO$$KKrcYRhHyg7NZ0m80vkRf",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "cacheSelectedOnly" : null,
+        "gitSubPath" : null,
+        "runModelWithParents" : false,
+        "defer" : null,
+        "noDefer" : null,
+        "runSeed" : false,
+        "gitEntity" : "branch",
+        "noPartialParse" : null,
+        "warnErrorOptions" : null,
+        "gitTokenSecret" : null,
+        "state" : null,
+        "useExperimentalParser" : null,
+        "gitSshUrl" : null,
+        "indirectSelection" : null,
+        "partialParse" : null,
+        "runRun" : true,
+        "vars" : null,
+        "noPrint" : null,
+        "quiet" : null,
+        "projectId" : "35096",
+        "runOnlyModel" : false,
+        "favorState" : null,
+        "failFast" : null,
+        "noStaticParser" : null,
+        "runTest" : true,
+        "select" : null,
+        "recordTimingInfo" : null,
+        "fullRefresh" : null,
+        "noCacheSelectedOnly" : null,
+        "noFavorState" : null,
+        "isProphecyManaged" : false,
+        "profile" : null,
+        "noVersionCheck" : null,
+        "noWriteJson" : false,
+        "printerWidth" : null,
+        "sqlFabricId" : "10691",
+        "gitEntityValue" : "br1",
+        "logFormat" : null,
+        "runModelWithChildren" : false,
+        "dbtProfileSecret" : null,
+        "models" : null,
+        "target" : null,
+        "exclude" : null,
+        "runDeps" : false,
+        "noAnonymousUsageStats" : null,
+        "selector" : null,
+        "targetPath" : null,
+        "threads" : null,
+        "warnError" : null,
+        "currentProjectModels" : [ {
+          "label" : "customers_model",
+          "value" : "customers_model",
+          "id" : "35096/.prophecy/metadata/sqlmodels/customers_model",
+          "name" : "customers_model"
+        } ],
+        "profilesDir" : null,
+        "taskId" : null,
+        "logPath" : null,
+        "storeFailures" : null
+      }
+    }
+  },
   "connections" : [ ]
 }
