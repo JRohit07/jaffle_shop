@@ -12,7 +12,7 @@ PROPHECY_RELEASE_TAG = "__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLA
 with DAG(
     dag_id = "uitesting_jrohit_e2e_Redshift_project_basic_Job_redshift", 
     schedule_interval = "0 0/1 * * *", 
-    default_args = {"owner" : "Prophecy", "retries" : 0, "ignore_first_depends_on_past" : True, "do_xcom_push" : True}, 
+    default_args = {"owner" : "Prophecy", "retries" : 1, "ignore_first_depends_on_past" : True, "do_xcom_push" : True}, 
     start_date = pendulum.today('UTC'), 
     catchup = True, 
     tags = []
