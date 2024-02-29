@@ -11,11 +11,12 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "source##Drz0S8BF" : {
-      "id" : "source##Drz0S8BF",
+    "source##cQsMqddt" : {
+      "id" : "source##cQsMqddt",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
@@ -31,9 +32,9 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "g5JrMLfQ",
+          "id" : "u0psy0st",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -58,11 +59,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "renamed##oWBgPScj" : {
-      "id" : "renamed##oWBgPScj",
+    "renamed##A6c8KzZa" : {
+      "id" : "renamed##A6c8KzZa",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
@@ -70,7 +72,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "Lu4thL0d##id", "Lu4thL0d##user_id", "Lu4thL0d##order_date", "Lu4thL0d##status" ],
+        "columnsSelector" : [ "X7sfF8IP##id", "X7sfF8IP##user_id", "X7sfF8IP##order_date", "X7sfF8IP##status" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -93,9 +95,9 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Lu4thL0d",
+          "id" : "X7sfF8IP",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -121,9 +123,9 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "HHPmBfQ0",
+          "id" : "oYUymwGe",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -148,11 +150,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "stg_orders##Uk9BgRqB" : {
-      "id" : "stg_orders##Uk9BgRqB",
+    "stg_orders##a1ifamuS" : {
+      "id" : "stg_orders##a1ifamuS",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_orders",
@@ -171,9 +174,9 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "U3lhVDab",
+          "id" : "yTaQgdlS",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -199,9 +202,9 @@
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "mXp9KCn5",
+          "id" : "T4mMLx24",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -226,22 +229,23 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "vUP3P3S1",
-    "source" : "source##Drz0S8BF",
-    "sourcePort" : "g5JrMLfQ",
-    "target" : "renamed##oWBgPScj",
-    "targetPort" : "Lu4thL0d"
+    "id" : "fIG5plh9",
+    "source" : "source##cQsMqddt",
+    "sourcePort" : "u0psy0st",
+    "target" : "renamed##A6c8KzZa",
+    "targetPort" : "X7sfF8IP"
   }, {
-    "id" : "sOxyEO13",
-    "source" : "renamed##oWBgPScj",
-    "sourcePort" : "HHPmBfQ0",
-    "target" : "stg_orders##Uk9BgRqB",
-    "targetPort" : "U3lhVDab"
+    "id" : "MCHKfNXK",
+    "source" : "renamed##A6c8KzZa",
+    "sourcePort" : "oYUymwGe",
+    "target" : "stg_orders##a1ifamuS",
+    "targetPort" : "yTaQgdlS"
   } ],
   "component" : "Model"
 }
