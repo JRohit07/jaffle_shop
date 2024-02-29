@@ -1,0 +1,121 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "576",
+    "jobId" : "jobs/airflow_databricks_job",
+    "name" : "airflow_databricks_job",
+    "schedule" : "None",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "prophecy_internal_jobs",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "576",
+      "name" : "databricks_sql",
+      "clusterSizes" : {
+        "default" : "prophecy_internal_jobs",
+        "availableClusterSizes" : [ "prophecy_internal_jobs" ]
+      }
+    } ]
+  },
+  "processes" : {
+    "WeHduCuSsFB6HzeT09yUZ$$hvw5ihUbPlgiXvrcTQITh" : {
+      "id" : "WeHduCuSsFB6HzeT09yUZ$$hvw5ihUbPlgiXvrcTQITh",
+      "component" : "DBT",
+      "metadata" : {
+        "label" : "DBT_0",
+        "slug" : "DBT_0",
+        "x" : -100,
+        "y" : -120
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4wNzmMkP0bN_05EBBnTvU$$aV_rAxd3ZJ-5-Sw2V-l1g",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "1n6LEpu76vd7apXPqikNI$$TgEtiJEsoRJPbfijvBUDU",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "execSeed" : true,
+        "execRun" : true,
+        "gitEntity" : "branch",
+        "projectId" : "10695",
+        "runOnlyModel" : "false",
+        "loadingModels" : false,
+        "profile" : "run_profile",
+        "sqlFabricId" : "576",
+        "gitEntityValue" : "dev/test",
+        "execDeps" : true,
+        "execTest" : false,
+        "currentProjectModels" : [ {
+          "label" : "newmodel",
+          "value" : "newmodel",
+          "id" : "10695/.prophecy/metadata/sqlmodels/newmodel",
+          "name" : "newmodel"
+        }, {
+          "label" : "customModel",
+          "value" : "customModel",
+          "id" : "10695/.prophecy/metadata/sqlmodels/customModel",
+          "name" : "customModel"
+        }, {
+          "label" : "stg_customers",
+          "value" : "stg_customers",
+          "id" : "10695/.prophecy/metadata/sqlmodels/stg_customers",
+          "name" : "stg_customers"
+        }, {
+          "label" : "stg_payments",
+          "value" : "stg_payments",
+          "id" : "10695/.prophecy/metadata/sqlmodels/stg_payments",
+          "name" : "stg_payments"
+        }, {
+          "label" : "customers",
+          "value" : "customers",
+          "id" : "10695/.prophecy/metadata/sqlmodels/customers",
+          "name" : "customers"
+        }, {
+          "label" : "orders",
+          "value" : "orders",
+          "id" : "10695/.prophecy/metadata/sqlmodels/orders",
+          "name" : "orders"
+        }, {
+          "label" : "stg_orders",
+          "value" : "stg_orders",
+          "id" : "10695/.prophecy/metadata/sqlmodels/stg_orders",
+          "name" : "stg_orders"
+        } ]
+      }
+    }
+  },
+  "connections" : [ ]
+}

@@ -7,8 +7,8 @@
     "path" : "",
     "editable" : true
   },
-  "providerType" : "redshift",
-  "fabricId" : "6346",
+  "providerType" : "databricks",
+  "fabricId" : "576",
   "prophecyIDEFolder" : {
     "name" : "",
     "children" : { },
