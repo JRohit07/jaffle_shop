@@ -185,7 +185,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/ramdomseed:
     name: ramdomseed
     schema:
-      providerType: Databricks
+      providerType: Redshift
       fields:
       - name: id
         dataType:
@@ -204,7 +204,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_customers:
     name: raw_customers
     schema:
-      providerType: Databricks
+      providerType: Redshift
       fields:
       - name: id
         dataType:
@@ -223,7 +223,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_orders:
     name: raw_orders
     schema:
-      providerType: Databricks
+      providerType: Redshift
       fields:
       - name: id
         dataType:
@@ -245,7 +245,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_payments:
     name: raw_payments
     schema:
-      providerType: Databricks
+      providerType: Redshift
       fields:
       - name: id
         dataType:
@@ -275,14 +275,14 @@ sqlSources:
     tables:
     - name: customers
       schema:
-        providerType: databricks
+        providerType: redshift
         fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
-        providerType: databricks
+        providerType: redshift
         fields: []
       description: null
       author: jrohit+e2e@prophecy.io
@@ -297,7 +297,7 @@ sqlSources:
     tables:
     - name: listing
       schema:
-        providerType: databricks
+        providerType: redshift
         fields: []
       description: This dataset is a comprehensive representation of the listings
         available on the platform, including the seller ID, event ID, date ID, number
@@ -317,7 +317,7 @@ sqlSources:
     tables:
     - name: customer
       schema:
-        providerType: databricks
+        providerType: redshift
         fields: []
       description: null
       author: jrohit+e2e@prophecy.io
