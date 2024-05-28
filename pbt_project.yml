@@ -49,7 +49,21 @@ subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/stg_orders:
     name: stg_orders
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: order_id
+        dataType:
+          type: Integer
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: order_date
+        dataType:
+          type: Date
+      - name: status
+        dataType:
+          type: String
     description: null
     author: jrohit+e2e@prophecy.io
     files:
@@ -65,7 +79,36 @@ sqlModels:
     createdAt: '2023-08-14 06:59:40'
   .prophecy/metadata/sqlmodels/orders:
     name: orders
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: order_id
+        dataType:
+          type: Integer
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: order_date
+        dataType:
+          type: Date
+      - name: status
+        dataType:
+          type: String
+      - name: credit_card_amount
+        dataType:
+          type: Bigint
+      - name: coupon_amount
+        dataType:
+          type: Bigint
+      - name: bank_transfer_amount
+        dataType:
+          type: Bigint
+      - name: gift_card_amount
+        dataType:
+          type: Bigint
+      - name: amount
+        dataType:
+          type: Bigint
     description: This table has basic information about orders, as well as some derived
       facts based on payments
     author: jrohit+e2e@prophecy.io
@@ -82,7 +125,30 @@ sqlModels:
     createdAt: '2023-08-14 06:59:40'
   .prophecy/metadata/sqlmodels/customers:
     name: customers
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: first_order
+        dataType:
+          type: Date
+      - name: most_recent_order
+        dataType:
+          type: Date
+      - name: number_of_orders
+        dataType:
+          type: Bigint
+      - name: customer_lifetime_value
+        dataType:
+          type: Bigint
     description: This table has basic information about a customer, as well as some
       derived facts based on a customer's orders
     author: jrohit+e2e@prophecy.io
@@ -97,9 +163,55 @@ sqlModels:
       sources: []
       snapshots: []
     createdAt: '2023-08-14 06:59:40'
+  .prophecy/metadata/sqlmodels/Redshift_enhanced_experience_2:
+    name: Redshift_enhanced_experience_2
+    schema:
+      providerType: Redshift
+      fields:
+      - name: number_of_orders
+        dataType:
+          type: Bigint
+      - name: first_order
+        dataType:
+          type: Date
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: order_id
+        dataType:
+          type: Integer
+    description: null
+    author: jrohit@prophecy.io
+    files:
+    - models/Redshift_enhanced_experience_2.sql
+    - .prophecy/ide/models/Redshift_enhanced_experience_2.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-05-28 08:19:48'
   .prophecy/metadata/sqlmodels/stg_payments:
     name: stg_payments
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: payment_id
+        dataType:
+          type: Integer
+      - name: order_id
+        dataType:
+          type: Integer
+      - name: payment_method
+        dataType:
+          type: String
+      - name: amount
+        dataType:
+          type: Integer
     description: null
     author: jrohit+e2e@prophecy.io
     files:
@@ -113,24 +225,35 @@ sqlModels:
       sources: []
       snapshots: []
     createdAt: '2023-08-14 06:59:40'
-  .prophecy/metadata/sqlmodels/newmodel:
-    name: newmodel
-    schema: null
-    description: null
-    author: jrohit+e2e@prophecy.io
-    files:
-    - models/newmodel.sql
-    - .prophecy/ide/models/newmodel.json
-    sqlDependencies:
-      models: []
-      datasets: []
-      seeds: []
-      sources: []
-      snapshots: []
-    createdAt: '2023-08-21 11:44:27'
   .prophecy/metadata/sqlmodels/customModel:
     name: customModel
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: listid
+        dataType:
+          type: Integer
+      - name: sellerid
+        dataType:
+          type: Integer
+      - name: eventid
+        dataType:
+          type: Integer
+      - name: dateid
+        dataType:
+          type: SmallInt
+      - name: numtickets
+        dataType:
+          type: SmallInt
+      - name: priceperticket
+        dataType:
+          type: Decimal
+      - name: totalprice
+        dataType:
+          type: Decimal
+      - name: listtime
+        dataType:
+          type: Timestamp
     description: null
     author: jrohit+e2e@prophecy.io
     files:
@@ -145,7 +268,18 @@ sqlModels:
     createdAt: '2023-08-14 11:01:50'
   .prophecy/metadata/sqlmodels/stg_customers:
     name: stg_customers
-    schema: null
+    schema:
+      providerType: Redshift
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
     description: null
     author: jrohit+e2e@prophecy.io
     files:
@@ -159,6 +293,112 @@ sqlModels:
       sources: []
       snapshots: []
     createdAt: '2023-08-14 06:59:40'
+  .prophecy/metadata/sqlmodels/Redshift_enhanced_experience_1:
+    name: Redshift_enhanced_experience_1
+    schema:
+      providerType: Redshift
+      fields:
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: first_order
+        dataType:
+          type: String
+      - name: most_recent_order
+        dataType:
+          type: String
+      - name: number_of_orders
+        dataType:
+          type: String
+      - name: customer_lifetime_value
+        dataType:
+          type: String
+      - name: credit_card_amount
+        dataType:
+          type: Bigint
+      - name: order_date
+        dataType:
+          type: Date
+      - name: gift_card_amount
+        dataType:
+          type: Bigint
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: status
+        dataType:
+          type: String
+      - name: bank_transfer_amount
+        dataType:
+          type: Bigint
+      - name: order_id
+        dataType:
+          type: Integer
+      - name: amount
+        dataType:
+          type: Bigint
+      - name: coupon_amount
+        dataType:
+          type: Bigint
+    description: null
+    author: jrohit@prophecy.io
+    files:
+    - models/Redshift_enhanced_experience_1.sql
+    - .prophecy/ide/models/Redshift_enhanced_experience_1.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-05-28 08:16:33'
+  .prophecy/metadata/sqlmodels/newmodel:
+    name: newmodel
+    schema:
+      providerType: Redshift
+      fields:
+      - name: listid
+        dataType:
+          type: Integer
+      - name: sellerid
+        dataType:
+          type: Integer
+      - name: eventid
+        dataType:
+          type: Integer
+      - name: dateid
+        dataType:
+          type: SmallInt
+      - name: numtickets
+        dataType:
+          type: Decimal
+      - name: priceperticket
+        dataType:
+          type: Decimal
+      - name: totalprice
+        dataType:
+          type: Decimal
+      - name: listtime
+        dataType:
+          type: Timestamp
+      - name: c_function
+        dataType:
+          type: Decimal
+    description: null
+    author: jrohit+e2e@prophecy.io
+    files:
+    - models/newmodel.sql
+    - .prophecy/ide/models/newmodel.json
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2023-08-21 11:44:27'
 sqlSnapshots: {}
 sqlTests: {}
 sqlMacros:
@@ -276,14 +516,59 @@ sqlSources:
     - name: customers
       schema:
         providerType: redshift
-        fields: []
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: first_order
+          dataType:
+            type: Date
+        - name: most_recent_order
+          dataType:
+            type: Date
+        - name: number_of_orders
+          dataType:
+            type: Bigint
+        - name: customer_lifetime_value
+          dataType:
+            type: Bigint
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
         providerType: redshift
-        fields: []
+        fields:
+        - name: listid
+          dataType:
+            type: Integer
+        - name: sellerid
+          dataType:
+            type: Integer
+        - name: eventid
+          dataType:
+            type: Integer
+        - name: dateid
+          dataType:
+            type: SmallInt
+        - name: numtickets
+          dataType:
+            type: SmallInt
+        - name: priceperticket
+          dataType:
+            type: Decimal
+        - name: totalprice
+          dataType:
+            type: Decimal
+        - name: listtime
+          dataType:
+            type: Timestamp
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:08:51'
@@ -298,7 +583,31 @@ sqlSources:
     - name: listing
       schema:
         providerType: redshift
-        fields: []
+        fields:
+        - name: listid
+          dataType:
+            type: Integer
+        - name: sellerid
+          dataType:
+            type: Integer
+        - name: eventid
+          dataType:
+            type: Integer
+        - name: dateid
+          dataType:
+            type: SmallInt
+        - name: numtickets
+          dataType:
+            type: SmallInt
+        - name: priceperticket
+          dataType:
+            type: Decimal
+        - name: totalprice
+          dataType:
+            type: Decimal
+        - name: listtime
+          dataType:
+            type: Timestamp
       description: This dataset is a comprehensive representation of the listings
         available on the platform, including the seller ID, event ID, date ID, number
         of tickets, price per ticket, total price, and listing time. This data is
@@ -318,7 +627,31 @@ sqlSources:
     - name: customer
       schema:
         providerType: redshift
-        fields: []
+        fields:
+        - name: c_custkey
+          dataType:
+            type: Bigint
+        - name: c_name
+          dataType:
+            type: String
+        - name: c_address
+          dataType:
+            type: String
+        - name: c_nationkey
+          dataType:
+            type: Integer
+        - name: c_phone
+          dataType:
+            type: Char
+        - name: c_acctbal
+          dataType:
+            type: Decimal
+        - name: c_mktsegment
+          dataType:
+            type: Char
+        - name: c_comment
+          dataType:
+            type: String
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:43'

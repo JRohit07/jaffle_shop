@@ -2,7 +2,7 @@
   "id" : "customers",
   "metainfo" : {
     "label" : "customers",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -11,107 +11,17 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "customer_payments##tGphsLlb" : {
-      "id" : "customer_payments##tGphsLlb",
-      "component" : "SQLStatement",
-      "metadata" : {
-        "label" : "customer_payments",
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "fileTabs" : [ {
-          "path" : "out",
-          "id" : "out",
-          "language" : "sql",
-          "content" : "SELECT \n  orders.customer_id,\n  sum(amount) AS total_amount\n\nFROM payments\nLEFT JOIN orders\n   ON payments.order_id = orders.order_id\n\nGROUP BY orders.customer_id\n"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "hvzKYnBt",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
-          "slug" : "payments"
-        }, {
-          "id" : "bZ5bBTOF",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "orders"
-        } ],
-        "outputs" : [ {
-          "id" : "YP1cLmRe",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "total_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "payments##hYSKtQes" : {
-      "id" : "payments##hYSKtQes",
+    "payments##Q3dyQQof" : {
+      "id" : "payments##Q3dyQQof",
       "component" : "Model",
       "metadata" : {
         "label" : "payments",
+        "x" : 20,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -123,7 +33,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "gXEvBeNn",
+          "id" : "nMAmqalR",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -150,26 +60,33 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "customers##bnq5GCJp" : {
-      "id" : "customers##bnq5GCJp",
-      "component" : "Model",
+    "customers##MOXhlIAV" : {
+      "id" : "customers##MOXhlIAV",
+      "component" : "TargetModel",
       "metadata" : {
         "label" : "customers",
-        "phase" : 0
+        "x" : 680,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
       },
       "properties" : {
-        "table" : {
-          "name" : "stg_customers",
-          "sourceType" : "Model"
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM final\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
         }
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "Furul0p8",
+        "inputs" : [ {
+          "id" : "CjWqX8yN",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -187,64 +104,84 @@
               "dataType" : {
                 "type" : "String"
               }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
             } ]
           },
-          "slug" : "out"
+          "slug" : "final"
         } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "orders##YpYBYwXf" : {
-      "id" : "orders##YpYBYwXf",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "orders",
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "stg_orders",
-          "sourceType" : "Model"
-        }
-      },
-      "ports" : {
-        "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ruab0lPN",
+          "id" : "SbavP4m5",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
               "name" : "customer_id",
               "dataType" : {
                 "type" : "Integer"
               }
             }, {
-              "name" : "order_date",
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
               "dataType" : {
                 "type" : "Date"
               }
             }, {
-              "name" : "status",
+              "name" : "most_recent_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "final##B85SOMfX" : {
-      "id" : "final##B85SOMfX",
+    "final##nJjnhQWj" : {
+      "id" : "final##nJjnhQWj",
       "component" : "Join",
       "metadata" : {
         "label" : "final",
+        "x" : 480,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -298,7 +235,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "QriLrWXz",
+          "id" : "x4rY1ulP",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -320,7 +257,7 @@
           },
           "slug" : "customers"
         }, {
-          "id" : "XsPTfctU",
+          "id" : "RArvMOmM",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -347,7 +284,7 @@
           },
           "slug" : "customer_orders"
         }, {
-          "id" : "MjiJdAWL",
+          "id" : "tdauXPBL",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -365,7 +302,7 @@
           "slug" : "customer_payments"
         } ],
         "outputs" : [ {
-          "id" : "URrMrPy4",
+          "id" : "s0wwnrfK",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -407,14 +344,17 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "customer_orders##FFMxmBVI" : {
-      "id" : "customer_orders##FFMxmBVI",
+    "customer_orders##hYY0UGbd" : {
+      "id" : "customer_orders##hYY0UGbd",
       "component" : "Aggregate",
       "metadata" : {
         "label" : "customer_orders",
+        "x" : 280,
+        "y" : 220,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -453,7 +393,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "sBJ34Grz",
+          "id" : "yko8MCln",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -481,7 +421,7 @@
           "slug" : "orders"
         } ],
         "outputs" : [ {
-          "id" : "UZVTxEcx",
+          "id" : "uUnPojlX",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -508,73 +448,135 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "customers##RJlKBZBB" : {
-      "id" : "customers##RJlKBZBB",
-      "component" : "TargetModel",
+    "orders##MtTULwPk" : {
+      "id" : "orders##MtTULwPk",
+      "component" : "Model",
       "metadata" : {
-        "label" : "customers",
+        "label" : "orders",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "stg_orders",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "uWXKQUjG",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "customer_payments##NPLQkybz" : {
+      "id" : "customer_payments##NPLQkybz",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "customer_payments",
+        "x" : 280,
+        "y" : 420,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM final\n",
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT \n  orders.customer_id,\n  sum(amount) AS total_amount\n\nFROM payments\nLEFT JOIN orders\n   ON payments.order_id = orders.order_id\n\nGROUP BY orders.customer_id\n"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "hlzFIvyC",
+          "id" : "NUdDYAuq",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "payment_id",
               "dataType" : {
                 "type" : "Integer"
               }
             }, {
-              "name" : "first_name",
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "amount",
               "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_order",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "most_recent_order",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "number_of_orders",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "customer_lifetime_value",
-              "dataType" : {
-                "type" : "Bigint"
+                "type" : "Integer"
               }
             } ]
           },
-          "slug" : "final"
+          "slug" : "payments"
+        }, {
+          "id" : "Rh1qEV2n",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "orders"
         } ],
         "outputs" : [ {
-          "id" : "oYpHR4yl",
+          "id" : "dVgZnsXH",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -583,32 +585,7 @@
                 "type" : "Integer"
               }
             }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_order",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "most_recent_order",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "number_of_orders",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "customer_lifetime_value",
+              "name" : "total_amount",
               "dataType" : {
                 "type" : "Bigint"
               }
@@ -616,52 +593,97 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "customers##x58bufxG" : {
+      "id" : "customers##x58bufxG",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "customers",
+        "x" : 280,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "stg_customers",
+          "sourceType" : "Model"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Rr7F5Tg2",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "julVelLu",
-    "source" : "orders##YpYBYwXf",
-    "sourcePort" : "ruab0lPN",
-    "target" : "customer_orders##FFMxmBVI",
-    "targetPort" : "sBJ34Grz"
+    "id" : "SrMKcaaA",
+    "source" : "orders##MtTULwPk",
+    "sourcePort" : "uWXKQUjG",
+    "target" : "customer_orders##hYY0UGbd",
+    "targetPort" : "yko8MCln"
   }, {
-    "id" : "EJzJDich",
-    "source" : "payments##hYSKtQes",
-    "sourcePort" : "gXEvBeNn",
-    "target" : "customer_payments##tGphsLlb",
-    "targetPort" : "hvzKYnBt"
+    "id" : "eHMTJjoQ",
+    "source" : "payments##Q3dyQQof",
+    "sourcePort" : "nMAmqalR",
+    "target" : "customer_payments##NPLQkybz",
+    "targetPort" : "NUdDYAuq"
   }, {
-    "id" : "Zr6sR4ej",
-    "source" : "orders##YpYBYwXf",
-    "sourcePort" : "ruab0lPN",
-    "target" : "customer_payments##tGphsLlb",
-    "targetPort" : "bZ5bBTOF"
+    "id" : "IcgqFjSE",
+    "source" : "orders##MtTULwPk",
+    "sourcePort" : "uWXKQUjG",
+    "target" : "customer_payments##NPLQkybz",
+    "targetPort" : "Rh1qEV2n"
   }, {
-    "id" : "szrmbCTK",
-    "source" : "customers##bnq5GCJp",
-    "sourcePort" : "Furul0p8",
-    "target" : "final##B85SOMfX",
-    "targetPort" : "QriLrWXz"
+    "id" : "ZIP56Zj2",
+    "source" : "customers##x58bufxG",
+    "sourcePort" : "Rr7F5Tg2",
+    "target" : "final##nJjnhQWj",
+    "targetPort" : "x4rY1ulP"
   }, {
-    "id" : "DPOxkGUl",
-    "source" : "customer_orders##FFMxmBVI",
-    "sourcePort" : "UZVTxEcx",
-    "target" : "final##B85SOMfX",
-    "targetPort" : "XsPTfctU"
+    "id" : "aNWoEE5W",
+    "source" : "customer_orders##hYY0UGbd",
+    "sourcePort" : "uUnPojlX",
+    "target" : "final##nJjnhQWj",
+    "targetPort" : "RArvMOmM"
   }, {
-    "id" : "RS73Dioy",
-    "source" : "customer_payments##tGphsLlb",
-    "sourcePort" : "YP1cLmRe",
-    "target" : "final##B85SOMfX",
-    "targetPort" : "MjiJdAWL"
+    "id" : "MaIZ95GV",
+    "source" : "customer_payments##NPLQkybz",
+    "sourcePort" : "dVgZnsXH",
+    "target" : "final##nJjnhQWj",
+    "targetPort" : "tdauXPBL"
   }, {
-    "id" : "NW0AgGwQ",
-    "source" : "final##B85SOMfX",
-    "sourcePort" : "URrMrPy4",
-    "target" : "customers##RJlKBZBB",
-    "targetPort" : "hlzFIvyC"
+    "id" : "WuUYn689",
+    "source" : "final##nJjnhQWj",
+    "sourcePort" : "s0wwnrfK",
+    "target" : "customers##MOXhlIAV",
+    "targetPort" : "CjWqX8yN"
   } ],
   "component" : "Model"
 }

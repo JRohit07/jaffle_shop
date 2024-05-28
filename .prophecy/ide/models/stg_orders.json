@@ -11,11 +11,12 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "source##Drz0S8BF" : {
-      "id" : "source##Drz0S8BF",
+    "source##yxbgbRI7" : {
+      "id" : "source##yxbgbRI7",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
@@ -31,7 +32,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "g5JrMLfQ",
+          "id" : "Fsn71xcM",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -58,11 +59,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "renamed##oWBgPScj" : {
-      "id" : "renamed##oWBgPScj",
+    "renamed##TvBds21l" : {
+      "id" : "renamed##TvBds21l",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
@@ -70,7 +72,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "Lu4thL0d##id", "Lu4thL0d##user_id", "Lu4thL0d##order_date", "Lu4thL0d##status" ],
+        "columnsSelector" : [ "BEWpyRi6##id", "BEWpyRi6##user_id", "BEWpyRi6##order_date", "BEWpyRi6##status" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -93,7 +95,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Lu4thL0d",
+          "id" : "BEWpyRi6",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -121,7 +123,7 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "HHPmBfQ0",
+          "id" : "koM2MqH0",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -148,11 +150,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "stg_orders##Uk9BgRqB" : {
-      "id" : "stg_orders##Uk9BgRqB",
+    "stg_orders##xzboBsi6" : {
+      "id" : "stg_orders##xzboBsi6",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_orders",
@@ -171,7 +174,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "U3lhVDab",
+          "id" : "u9bI47AA",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -199,7 +202,7 @@
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "mXp9KCn5",
+          "id" : "K9b5Yd7h",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -226,22 +229,23 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "vUP3P3S1",
-    "source" : "source##Drz0S8BF",
-    "sourcePort" : "g5JrMLfQ",
-    "target" : "renamed##oWBgPScj",
-    "targetPort" : "Lu4thL0d"
+    "id" : "MHSeOvKH",
+    "source" : "source##yxbgbRI7",
+    "sourcePort" : "Fsn71xcM",
+    "target" : "renamed##TvBds21l",
+    "targetPort" : "BEWpyRi6"
   }, {
-    "id" : "sOxyEO13",
-    "source" : "renamed##oWBgPScj",
-    "sourcePort" : "HHPmBfQ0",
-    "target" : "stg_orders##Uk9BgRqB",
-    "targetPort" : "U3lhVDab"
+    "id" : "NH3gyjqp",
+    "source" : "renamed##TvBds21l",
+    "sourcePort" : "koM2MqH0",
+    "target" : "stg_orders##xzboBsi6",
+    "targetPort" : "u9bI47AA"
   } ],
   "component" : "Model"
 }

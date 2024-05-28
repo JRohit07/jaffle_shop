@@ -1,0 +1,1149 @@
+{
+  "id" : "Redshift_enhanced_experience_2",
+  "metainfo" : {
+    "label" : "Redshift_enhanced_experience_2",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "zXJfHpvKqBSHcvS34h9qA$$sYILzTPAfMQ6Ido3URMXs" : {
+      "id" : "zXJfHpvKqBSHcvS34h9qA$$sYILzTPAfMQ6Ido3URMXs",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_customer_id_first_name",
+        "slug" : "by_customer_id_first_name",
+        "x" : 320,
+        "y" : 220,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "stg_customers",
+          "expression" : {
+            "expression" : "customers.customer_id = stg_customers.customer_id AND customers.first_name = stg_customers.first_name AND customers.last_name = stg_customers.last_name"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "customers.number_of_orders"
+          },
+          "alias" : "number_of_orders"
+        }, {
+          "expression" : {
+            "expression" : "customers.first_order"
+          },
+          "alias" : "first_order"
+        }, {
+          "expression" : {
+            "expression" : "customers.customer_lifetime_value"
+          },
+          "alias" : "customer_lifetime_value"
+        }, {
+          "expression" : {
+            "expression" : "customers.most_recent_order"
+          },
+          "alias" : "most_recent_order"
+        }, {
+          "expression" : {
+            "expression" : "customers.customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "customers.first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "customers.last_name"
+          },
+          "alias" : "last_name"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##customer_id", "9Eu2kLgIcqbPzBxSIcgi-$$dqpEj3h-gPcIPL6VNF7WJ##customer_id", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##first_name", "9Eu2kLgIcqbPzBxSIcgi-$$dqpEj3h-gPcIPL6VNF7WJ##first_name", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##last_name", "9Eu2kLgIcqbPzBxSIcgi-$$dqpEj3h-gPcIPL6VNF7WJ##last_name", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##number_of_orders", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##first_order", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##customer_lifetime_value", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##most_recent_order", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##customer_id", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##first_name", "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc##last_name" ],
+        "headAlias" : "customers"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "customers"
+        }, {
+          "id" : "9Eu2kLgIcqbPzBxSIcgi-$$dqpEj3h-gPcIPL6VNF7WJ",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "stg_customers"
+        } ],
+        "outputs" : [ {
+          "id" : "XOVG8UJW00EAn0P14xGMw$$pg0sXuWDYwhN0JYEiyLZf",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "gnbTmo21z_bQ6YGgrGCFZ$$qcLEg3Ti8trIKFHjQs439" : {
+      "id" : "gnbTmo21z_bQ6YGgrGCFZ$$qcLEg3Ti8trIKFHjQs439",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "join_by_customer_id_and_credit_card",
+        "slug" : "join_by_customer_id_and_credit_card",
+        "x" : 520,
+        "y" : 420,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.customer_id=in1.customer_id"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.number_of_orders"
+          },
+          "alias" : "number_of_orders"
+        }, {
+          "expression" : {
+            "expression" : "in0.first_order"
+          },
+          "alias" : "first_order"
+        }, {
+          "expression" : {
+            "expression" : "in1.first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "in0.last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "in1.order_id"
+          },
+          "alias" : "order_id"
+        } ],
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf##customer_id", "-dmQXKyVnGHirjOe0IaXV$$AbkKH3POBY2Y_V1E8A9xY##customer_id", "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf##number_of_orders", "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf##first_order", "-dmQXKyVnGHirjOe0IaXV$$AbkKH3POBY2Y_V1E8A9xY##first_name", "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf##last_name", "-dmQXKyVnGHirjOe0IaXV$$AbkKH3POBY2Y_V1E8A9xY##order_id" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "-dmQXKyVnGHirjOe0IaXV$$AbkKH3POBY2Y_V1E8A9xY",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "AyFxneRChQWjHsGvY3WB_$$o65yTmHmXtMN95bndfbdM",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "85sBI3Z0pp6ZE8HvdyFcR" : {
+      "id" : "85sBI3Z0pp6ZE8HvdyFcR",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : 120,
+        "y" : 120,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "customers",
+          "sourceType" : "Model",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jJo6Uq3VK4wU3WubGtwDy",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Redshift_enhanced_experience_2##HrVQytRj" : {
+      "id" : "Redshift_enhanced_experience_2##HrVQytRj",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "Redshift_enhanced_experience_2",
+        "x" : 720,
+        "y" : 420,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM join_by_customer_id_and_credit_card\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "OBTXm5B4",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "join_by_customer_id_and_credit_card"
+        } ],
+        "outputs" : [ {
+          "id" : "N8iXsizt",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "kXLiDPfSqsQTJ9xG9hEAr" : {
+      "id" : "kXLiDPfSqsQTJ9xG9hEAr",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "stg_customers",
+        "slug" : "stg_customers",
+        "x" : 120,
+        "y" : 320,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "stg_customers",
+          "sourceType" : "Model",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "E_43mR6G8HGU5YTS-6lUk",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "n0uIS8ORX1fm1hPOIe0mn" : {
+      "id" : "n0uIS8ORX1fm1hPOIe0mn",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "Redshift_enhanced_experience_1",
+        "slug" : "Redshift_enhanced_experience_1",
+        "x" : 120,
+        "y" : 520,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "Redshift_enhanced_experience_1",
+          "sourceType" : "Model",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "qLNfGbwDuBRTs3d2dNPU0",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "jHK5XJUhS-RT_EjIZ3Tm8$$f0SKGrXynziHOEGZWaFlD" : {
+      "id" : "jHK5XJUhS-RT_EjIZ3Tm8$$f0SKGrXynziHOEGZWaFlD",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_credit_card_amount_order_date",
+        "slug" : "by_credit_card_amount_order_date",
+        "x" : 320,
+        "y" : 620,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "orders",
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.credit_card_amount = orders.credit_card_amount AND Redshift_enhanced_experience_1.order_date = orders.order_date AND Redshift_enhanced_experience_1.gift_card_amount = orders.gift_card_amount AND Redshift_enhanced_experience_1.customer_id = orders.customer_id AND Redshift_enhanced_experience_1.status = orders.status AND Redshift_enhanced_experience_1.bank_transfer_amount = orders.bank_transfer_amount AND Redshift_enhanced_experience_1.order_id = orders.order_id AND Redshift_enhanced_experience_1.amount = orders.amount AND Redshift_enhanced_experience_1.coupon_amount = orders.coupon_amount"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.status"
+          },
+          "alias" : "status"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.customer_lifetime_value"
+          },
+          "alias" : "customer_lifetime_value"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.bank_transfer_amount"
+          },
+          "alias" : "bank_transfer_amount"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.credit_card_amount"
+          },
+          "alias" : "credit_card_amount"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.order_date"
+          },
+          "alias" : "order_date"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.customer_id"
+          },
+          "alias" : "customer_id"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.first_name"
+          },
+          "alias" : "first_name"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.first_order"
+          },
+          "alias" : "first_order"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.gift_card_amount"
+          },
+          "alias" : "gift_card_amount"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.coupon_amount"
+          },
+          "alias" : "coupon_amount"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.number_of_orders"
+          },
+          "alias" : "number_of_orders"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.amount"
+          },
+          "alias" : "amount"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.most_recent_order"
+          },
+          "alias" : "most_recent_order"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.last_name"
+          },
+          "alias" : "last_name"
+        }, {
+          "expression" : {
+            "expression" : "Redshift_enhanced_experience_1.order_id"
+          },
+          "alias" : "order_id"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##credit_card_amount", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##credit_card_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##order_date", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##order_date", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##gift_card_amount", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##gift_card_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##customer_id", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##customer_id", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##status", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##status", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##bank_transfer_amount", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##bank_transfer_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##order_id", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##order_id", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##amount", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##coupon_amount", "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp##coupon_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##status", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##customer_lifetime_value", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##bank_transfer_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##credit_card_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##order_date", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##customer_id", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##first_name", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##first_order", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##gift_card_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##coupon_amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##number_of_orders", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##amount", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##most_recent_order", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##last_name", "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU##order_id" ],
+        "headAlias" : "Redshift_enhanced_experience_1"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "Redshift_enhanced_experience_1"
+        }, {
+          "id" : "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "orders"
+        } ],
+        "outputs" : [ {
+          "id" : "vdlh9bpi07WB78HyodU1B$$zo2BtY9wH0L7Dc8mmX_u6",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_lifetime_value",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "first_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "number_of_orders",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "most_recent_order",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "NwptvcEprpTPaBW6Mcsh9" : {
+      "id" : "NwptvcEprpTPaBW6Mcsh9",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : 120,
+        "y" : 720,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "orders",
+          "sourceType" : "Model",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "8FmIvM0JLXC-O8FV6c156",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "eP2rj3CDSr2KA4qbm9xRi$$f6-kVnp9fqMCH_3c7Ya4A",
+    "source" : "n0uIS8ORX1fm1hPOIe0mn",
+    "sourcePort" : "qLNfGbwDuBRTs3d2dNPU0",
+    "target" : "jHK5XJUhS-RT_EjIZ3Tm8$$f0SKGrXynziHOEGZWaFlD",
+    "targetPort" : "NbY3U0wMKYOF3bLHc-3Fg$$GVoMm3BnCKwjJ9bral9uU"
+  }, {
+    "id" : "Z6NaftEQNhLgz3sk-T83-$$uPmBT-4fU5Ivh7Jhhlf05",
+    "source" : "NwptvcEprpTPaBW6Mcsh9",
+    "sourcePort" : "8FmIvM0JLXC-O8FV6c156",
+    "target" : "jHK5XJUhS-RT_EjIZ3Tm8$$f0SKGrXynziHOEGZWaFlD",
+    "targetPort" : "UhFWviTDh7MghyQIg4Iwn$$Y9jhW740qGnlZkyn5urYp"
+  }, {
+    "id" : "4Q6jCWC0id-PUfa8SVN_Y$$kPVznFyFyDVZc9cOyjE1H",
+    "source" : "85sBI3Z0pp6ZE8HvdyFcR",
+    "sourcePort" : "jJo6Uq3VK4wU3WubGtwDy",
+    "target" : "zXJfHpvKqBSHcvS34h9qA$$sYILzTPAfMQ6Ido3URMXs",
+    "targetPort" : "48cPA7L_ETrtccACViPzw$$0-qDZtgaIiGnm5_C2Vukc"
+  }, {
+    "id" : "IOQJM1Vp47hYuMELxxKlz$$VojCIUMVHBb7NXcmlvheM",
+    "source" : "kXLiDPfSqsQTJ9xG9hEAr",
+    "sourcePort" : "E_43mR6G8HGU5YTS-6lUk",
+    "target" : "zXJfHpvKqBSHcvS34h9qA$$sYILzTPAfMQ6Ido3URMXs",
+    "targetPort" : "9Eu2kLgIcqbPzBxSIcgi-$$dqpEj3h-gPcIPL6VNF7WJ"
+  }, {
+    "id" : "kKmkHfRNGdUIwGQBst97Q",
+    "source" : "zXJfHpvKqBSHcvS34h9qA$$sYILzTPAfMQ6Ido3URMXs",
+    "sourcePort" : "XOVG8UJW00EAn0P14xGMw$$pg0sXuWDYwhN0JYEiyLZf",
+    "target" : "gnbTmo21z_bQ6YGgrGCFZ$$qcLEg3Ti8trIKFHjQs439",
+    "targetPort" : "VpQIQ9xSH3iqTu4WPBJdW$$P7fDUTVJYTucDtNnHh4mf"
+  }, {
+    "id" : "c7chOZQHXBAtq7OejvKje",
+    "source" : "jHK5XJUhS-RT_EjIZ3Tm8$$f0SKGrXynziHOEGZWaFlD",
+    "sourcePort" : "vdlh9bpi07WB78HyodU1B$$zo2BtY9wH0L7Dc8mmX_u6",
+    "target" : "gnbTmo21z_bQ6YGgrGCFZ$$qcLEg3Ti8trIKFHjQs439",
+    "targetPort" : "-dmQXKyVnGHirjOe0IaXV$$AbkKH3POBY2Y_V1E8A9xY"
+  }, {
+    "id" : "WlAmR-DVHEXuduRriq8-F",
+    "source" : "gnbTmo21z_bQ6YGgrGCFZ$$qcLEg3Ti8trIKFHjQs439",
+    "sourcePort" : "AyFxneRChQWjHsGvY3WB_$$o65yTmHmXtMN95bndfbdM",
+    "target" : "Redshift_enhanced_experience_2##HrVQytRj",
+    "targetPort" : "OBTXm5B4"
+  } ],
+  "component" : "Model"
+}

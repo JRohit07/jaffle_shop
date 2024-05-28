@@ -13,11 +13,12 @@
           "payment_methods" : "['credit_card', 'coupon', 'bank_transfer', 'gift_card']"
         }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "payments##mkxPFfeD" : {
-      "id" : "payments##mkxPFfeD",
+    "payments##Bc8hGmge" : {
+      "id" : "payments##Bc8hGmge",
       "component" : "Model",
       "metadata" : {
         "label" : "payments",
@@ -32,7 +33,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "AG3TMNMl",
+          "id" : "Uabi7hD6",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -59,254 +60,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "order_payments##pYVWZd8R" : {
-      "id" : "order_payments##pYVWZd8R",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "order_payments",
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "aggregate" : [ {
-          "expression" : {
-            "expression" : "order_id"
-          }
-        }, {
-          "rowType" : "for",
-          "variable" : {
-            "expression" : "payment_method"
-          },
-          "iterable" : {
-            "expression" : "payment_methods"
-          },
-          "children" : [ {
-            "expression" : {
-              "expression" : "sum(CASE\n  WHEN payment_method = '{{ payment_method }}'\n    THEN amount\n  ELSE 0\nEND)"
-            },
-            "alias" : "{{payment_method}}_amount"
-          } ]
-        }, {
-          "expression" : {
-            "expression" : "sum(amount)"
-          },
-          "alias" : "total_amount"
-        } ],
-        "allowSelection" : true,
-        "condition" : {
-          "expression" : ""
-        },
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
-        "groupBy" : [ {
-          "expression" : {
-            "expression" : "order_id"
-          }
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "mqquOHzY",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "payment_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "payment_method",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
-          "slug" : "payments"
-        } ],
-        "outputs" : [ {
-          "id" : "B96LcHjc",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "credit_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "coupon_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "bank_transfer_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "gift_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "total_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "orders##viKiWtkC" : {
-      "id" : "orders##viKiWtkC",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "orders",
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM final\n",
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "AB5FXajY",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "credit_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "coupon_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "bank_transfer_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "gift_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "final"
-        } ],
-        "outputs" : [ {
-          "id" : "aLttsR7r",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "credit_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "coupon_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "bank_transfer_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "gift_card_amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "orders##Gsehd8AK" : {
-      "id" : "orders##Gsehd8AK",
+    "orders##Up47Mzec" : {
+      "id" : "orders##Up47Mzec",
       "component" : "Model",
       "metadata" : {
         "label" : "orders",
@@ -321,7 +80,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "LeEr8cvI",
+          "id" : "p4ukDnN5",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -348,11 +107,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "final##En3XngIh" : {
-      "id" : "final##En3XngIh",
+    "final##z1ofMOld" : {
+      "id" : "final##z1ofMOld",
       "component" : "Join",
       "metadata" : {
         "label" : "final",
@@ -408,7 +168,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "jRe0yyLu",
+          "id" : "mOmqhHEy",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -435,7 +195,7 @@
           },
           "slug" : "orders"
         }, {
-          "id" : "XCQTz9XX",
+          "id" : "iocCqoPl",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -473,7 +233,7 @@
           "slug" : "order_payments"
         } ],
         "outputs" : [ {
-          "id" : "I6VSsKK6",
+          "id" : "QXFULiI0",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -525,34 +285,280 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "orders##ae1FMihc" : {
+      "id" : "orders##ae1FMihc",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "orders",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM final\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "qGa9MEx3",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "final"
+        } ],
+        "outputs" : [ {
+          "id" : "UXvoWfRg",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "order_payments##eNMe0oBh" : {
+      "id" : "order_payments##eNMe0oBh",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "order_payments",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "order_id"
+          }
+        }, {
+          "rowType" : "for",
+          "variable" : {
+            "expression" : "payment_method"
+          },
+          "iterable" : {
+            "expression" : "payment_methods"
+          },
+          "children" : [ {
+            "expression" : {
+              "expression" : "sum(CASE\n  WHEN payment_method = '{{ payment_method }}'\n    THEN amount\n  ELSE 0\nEND)"
+            },
+            "alias" : "{{payment_method}}_amount"
+          } ]
+        }, {
+          "expression" : {
+            "expression" : "sum(amount)"
+          },
+          "alias" : "total_amount"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "order_id"
+          }
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "KOyFTyu7",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "payment_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "payment_method",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "payments"
+        } ],
+        "outputs" : [ {
+          "id" : "uYk2NK6y",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "credit_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "coupon_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "bank_transfer_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "gift_card_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "total_amount",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "cmihUdPU",
-    "source" : "payments##mkxPFfeD",
-    "sourcePort" : "AG3TMNMl",
-    "target" : "order_payments##pYVWZd8R",
-    "targetPort" : "mqquOHzY"
+    "id" : "Ofl0EOAa",
+    "source" : "payments##Bc8hGmge",
+    "sourcePort" : "Uabi7hD6",
+    "target" : "order_payments##eNMe0oBh",
+    "targetPort" : "KOyFTyu7"
   }, {
-    "id" : "clkY97qy",
-    "source" : "orders##Gsehd8AK",
-    "sourcePort" : "LeEr8cvI",
-    "target" : "final##En3XngIh",
-    "targetPort" : "jRe0yyLu"
+    "id" : "ipsokH5Y",
+    "source" : "orders##Up47Mzec",
+    "sourcePort" : "p4ukDnN5",
+    "target" : "final##z1ofMOld",
+    "targetPort" : "mOmqhHEy"
   }, {
-    "id" : "B2VHVjbO",
-    "source" : "order_payments##pYVWZd8R",
-    "sourcePort" : "B96LcHjc",
-    "target" : "final##En3XngIh",
-    "targetPort" : "XCQTz9XX"
+    "id" : "A01A1jIy",
+    "source" : "order_payments##eNMe0oBh",
+    "sourcePort" : "uYk2NK6y",
+    "target" : "final##z1ofMOld",
+    "targetPort" : "iocCqoPl"
   }, {
-    "id" : "aTH7fben",
-    "source" : "final##En3XngIh",
-    "sourcePort" : "I6VSsKK6",
-    "target" : "orders##viKiWtkC",
-    "targetPort" : "AB5FXajY"
+    "id" : "sZcibMFT",
+    "source" : "final##z1ofMOld",
+    "sourcePort" : "QXFULiI0",
+    "target" : "orders##ae1FMihc",
+    "targetPort" : "qGa9MEx3"
   } ],
   "component" : "Model"
 }

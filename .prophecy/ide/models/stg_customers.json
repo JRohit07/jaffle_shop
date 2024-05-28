@@ -11,11 +11,12 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "source##q8YoDPme" : {
-      "id" : "source##q8YoDPme",
+    "source##AUzGmSwb" : {
+      "id" : "source##AUzGmSwb",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
@@ -31,7 +32,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "KqHTA3zm",
+          "id" : "B8zJorLm",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -53,11 +54,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "renamed##Bzu05CQ9" : {
-      "id" : "renamed##Bzu05CQ9",
+    "renamed##TlCBs59f" : {
+      "id" : "renamed##TlCBs59f",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
@@ -65,7 +67,7 @@
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "AHwzjT62##id", "AHwzjT62##first_name", "AHwzjT62##last_name" ],
+        "columnsSelector" : [ "YT2kUPNs##id", "YT2kUPNs##first_name", "YT2kUPNs##last_name" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -83,7 +85,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "AHwzjT62",
+          "id" : "YT2kUPNs",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -106,7 +108,7 @@
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "hos4qflp",
+          "id" : "HqFLjcO0",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -128,11 +130,12 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "stg_customers##DtMOBnGL" : {
-      "id" : "stg_customers##DtMOBnGL",
+    "stg_customers##eYyQ2YKt" : {
+      "id" : "stg_customers##eYyQ2YKt",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_customers",
@@ -151,7 +154,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "eD3ilwui",
+          "id" : "lwyyGCDc",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -174,7 +177,7 @@
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "pfUVq2mP",
+          "id" : "qvak2K5k",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -196,22 +199,23 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "gEYf3J2T",
-    "source" : "source##q8YoDPme",
-    "sourcePort" : "KqHTA3zm",
-    "target" : "renamed##Bzu05CQ9",
-    "targetPort" : "AHwzjT62"
+    "id" : "HpnM7wQ3",
+    "source" : "source##AUzGmSwb",
+    "sourcePort" : "B8zJorLm",
+    "target" : "renamed##TlCBs59f",
+    "targetPort" : "YT2kUPNs"
   }, {
-    "id" : "rw9LTKiU",
-    "source" : "renamed##Bzu05CQ9",
-    "sourcePort" : "hos4qflp",
-    "target" : "stg_customers##DtMOBnGL",
-    "targetPort" : "eD3ilwui"
+    "id" : "wlKUfWC7",
+    "source" : "renamed##TlCBs59f",
+    "sourcePort" : "HqFLjcO0",
+    "target" : "stg_customers##eYyQ2YKt",
+    "targetPort" : "lwyyGCDc"
   } ],
   "component" : "Model"
 }

@@ -2,157 +2,37 @@
   "id" : "customModel",
   "metainfo" : {
     "label" : "customModel",
-    "autoLayout" : false,
+    "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
-    }
-  },
-  "processes" : {
-    "customModel##TjZnZf5E" : {
-      "id" : "customModel##TjZnZf5E",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "SetOperation_1_1",
-        "slug" : "SetOperation_1_1",
-        "x" : 20,
-        "y" : -220,
-        "phase" : 0,
-        "macroDependencies" : [ ]
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM listing_union\n",
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "NQaBEWNL",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "listid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "sellerid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "eventid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "dateid",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "numtickets",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "priceperticket",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "totalprice",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "listtime",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
-          "slug" : "listing_union"
-        } ],
-        "outputs" : [ {
-          "id" : "vDWNTyjZ",
-          "schema" : {
-            "providerType" : "Redshift",
-            "fields" : [ {
-              "name" : "listid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "sellerid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "eventid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "dateid",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "numtickets",
-              "dataType" : {
-                "type" : "SmallInt"
-              }
-            }, {
-              "name" : "priceperticket",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "totalprice",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            }, {
-              "name" : "listtime",
-              "dataType" : {
-                "type" : "Timestamp"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
       }
     },
-    "mtaFUtyU4cH8q5cGM8Tm2" : {
-      "id" : "mtaFUtyU4cH8q5cGM8Tm2",
+    "version" : 3
+  },
+  "processes" : {
+    "listing##gKQJVWHe" : {
+      "id" : "listing##gKQJVWHe",
       "component" : "Source",
       "metadata" : {
         "label" : "listing",
-        "slug" : "listing",
-        "x" : -320,
-        "y" : -160,
         "phase" : 0
       },
       "properties" : {
         "table" : {
           "name" : "listing",
           "sourceType" : "Source",
-          "sourceName" : "sample_data_dev.tickit",
-          "alias" : "",
-          "additionalProperties" : null
+          "sourceName" : "sample_data_dev.tickit"
         }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "8IJ5dW2TdAVPRbpYqGLdg",
+          "id" : "UcegMfNP",
           "schema" : {
             "providerType" : "redshift",
             "fields" : [ {
@@ -199,32 +79,25 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "wGYVs8_lFCcJOGLbZfxuT" : {
-      "id" : "wGYVs8_lFCcJOGLbZfxuT",
-      "component" : "Source",
+    "listing_3##EQLBvKIN" : {
+      "id" : "listing_3##EQLBvKIN",
+      "component" : "Reformat",
       "metadata" : {
         "label" : "listing_3",
-        "slug" : "listing_3",
-        "x" : -320,
-        "y" : -300,
-        "phase" : 0
+        "phase" : 0,
+        "macroDependencies" : [ ]
       },
       "properties" : {
-        "table" : {
-          "name" : "listing",
-          "sourceType" : "Source",
-          "sourceName" : "dev.public",
-          "alias" : "",
-          "additionalProperties" : null
-        }
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "Pv5f8MKNqmhuzb3VKsUae",
+        "inputs" : [ {
+          "id" : "hTHJsojV",
           "schema" : {
             "providerType" : "redshift",
             "fields" : [ {
@@ -269,21 +142,66 @@
               }
             } ]
           },
+          "slug" : "listing"
+        } ],
+        "outputs" : [ {
+          "id" : "Qpl10RZc",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "xKK-U7VaOiyzKO_PNB4y7$$ehUGkx9nCYQKPDlAdyH8v" : {
-      "id" : "xKK-U7VaOiyzKO_PNB4y7$$ehUGkx9nCYQKPDlAdyH8v",
+    "listing_union##JfgOTsLJ" : {
+      "id" : "listing_union##JfgOTsLJ",
       "component" : "SetOperation",
       "metadata" : {
         "label" : "listing_union",
-        "slug" : "listing_union",
-        "x" : -120,
-        "y" : -220,
-        "phase" : 0,
-        "macroDependencies" : [ ]
+        "phase" : 0
       },
       "properties" : {
         "operationType" : "union",
@@ -293,9 +211,9 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "uLFFUWH6IfKNEb_Y771dm$$sH4EB8RqfJH4kUHy5ZVQo",
+          "id" : "KhtMb4wU",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "Redshift",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -340,7 +258,7 @@
           },
           "slug" : "in0"
         }, {
-          "id" : "e1whUE-HA9Zyw_vx0i6Rw$$j1Oq2pBCFONzUKIv2Ii-H",
+          "id" : "LWhFPOjk",
           "schema" : {
             "providerType" : "redshift",
             "fields" : [ {
@@ -388,7 +306,7 @@
           "slug" : "in1"
         } ],
         "outputs" : [ {
-          "id" : "iiL6GINcDEQEp4qbvZQE0$$etFZOBVSC0kIvoc2X1O-R",
+          "id" : "XfjsEkZs",
           "schema" : {
             "providerType" : "Redshift",
             "fields" : [ {
@@ -435,28 +353,154 @@
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "customModel##MHBJklco" : {
+      "id" : "customModel##MHBJklco",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customModel",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM listing_union\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HouRoXxN",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "slug" : "listing_union"
+        } ],
+        "outputs" : [ {
+          "id" : "g7EVakwF",
+          "schema" : {
+            "providerType" : "Redshift",
+            "fields" : [ {
+              "name" : "listid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "sellerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "eventid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "dateid",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "numtickets",
+              "dataType" : {
+                "type" : "SmallInt"
+              }
+            }, {
+              "name" : "priceperticket",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "totalprice",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            }, {
+              "name" : "listtime",
+              "dataType" : {
+                "type" : "Timestamp"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "QL0fsocXBOMbut2mRzll7$$YaFnnE-Uh6cg0KpIlUXO1",
-    "source" : "xKK-U7VaOiyzKO_PNB4y7$$ehUGkx9nCYQKPDlAdyH8v",
-    "sourcePort" : "iiL6GINcDEQEp4qbvZQE0$$etFZOBVSC0kIvoc2X1O-R",
-    "target" : "customModel##TjZnZf5E",
-    "targetPort" : "NQaBEWNL"
+    "id" : "i4REHjXE",
+    "source" : "listing##gKQJVWHe",
+    "sourcePort" : "UcegMfNP",
+    "target" : "listing_3##EQLBvKIN",
+    "targetPort" : "hTHJsojV"
   }, {
-    "id" : "fmS6M48tSts3IJ_Xc4XDe$$DjYFgzoGhYnsmbRfQxL5M",
-    "source" : "wGYVs8_lFCcJOGLbZfxuT",
-    "sourcePort" : "Pv5f8MKNqmhuzb3VKsUae",
-    "target" : "xKK-U7VaOiyzKO_PNB4y7$$ehUGkx9nCYQKPDlAdyH8v",
-    "targetPort" : "uLFFUWH6IfKNEb_Y771dm$$sH4EB8RqfJH4kUHy5ZVQo"
+    "id" : "fBKeNh1P",
+    "source" : "listing_3##EQLBvKIN",
+    "sourcePort" : "Qpl10RZc",
+    "target" : "listing_union##JfgOTsLJ",
+    "targetPort" : "KhtMb4wU"
   }, {
-    "id" : "Vrz-zSkePte0a18j_XAkl$$84rwLRzThPX1cYhuUNYrN",
-    "source" : "mtaFUtyU4cH8q5cGM8Tm2",
-    "sourcePort" : "8IJ5dW2TdAVPRbpYqGLdg",
-    "target" : "xKK-U7VaOiyzKO_PNB4y7$$ehUGkx9nCYQKPDlAdyH8v",
-    "targetPort" : "e1whUE-HA9Zyw_vx0i6Rw$$j1Oq2pBCFONzUKIv2Ii-H"
+    "id" : "lzwwXhJU",
+    "source" : "listing##gKQJVWHe",
+    "sourcePort" : "UcegMfNP",
+    "target" : "listing_union##JfgOTsLJ",
+    "targetPort" : "LWhFPOjk"
+  }, {
+    "id" : "aMxqzzwI",
+    "source" : "listing_union##JfgOTsLJ",
+    "sourcePort" : "XfjsEkZs",
+    "target" : "customModel##MHBJklco",
+    "targetPort" : "HouRoXxN"
   } ],
   "component" : "Model"
 }

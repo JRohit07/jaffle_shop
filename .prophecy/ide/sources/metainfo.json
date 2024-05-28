@@ -8,7 +8,7 @@
     "editable" : true
   },
   "providerType" : "redshift",
-  "fabricId" : "6346",
+  "fabricId" : "2811",
   "prophecyIDEFolder" : {
     "name" : "",
     "children" : { },
@@ -44,5 +44,42 @@
     "dependencies" : { },
     "prophecyProjectDependencies" : { }
   },
+  "entitiesToSync" : [ {
+    "name" : "customers",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
+    "name" : "customModel",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "newmodel",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "orders",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
+    "name" : "Redshift_enhanced_experience_1",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "Redshift_enhanced_experience_2",
+    "type" : "Model",
+    "syncedOnce" : false
+  }, {
+    "name" : "stg_customers",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
+    "name" : "stg_orders",
+    "type" : "Model",
+    "syncedOnce" : true
+  }, {
+    "name" : "stg_payments",
+    "type" : "Model",
+    "syncedOnce" : true
+  } ],
   "frontEndLanguage" : "sql"
 }
