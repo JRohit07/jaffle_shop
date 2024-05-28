@@ -720,7 +720,7 @@
         "outputs" : [ {
           "id" : "H9XIi0tO",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1583,7 +1583,7 @@
         "inputs" : [ {
           "id" : "Yk0mh34e",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1696,7 +1696,7 @@
         "inputs" : [ {
           "id" : "MaAix8z7",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {

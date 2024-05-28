@@ -425,7 +425,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/ramdomseed:
     name: ramdomseed
     schema:
-      providerType: Redshift
+      providerType: Trino
       fields:
       - name: id
         dataType:
@@ -444,7 +444,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_customers:
     name: raw_customers
     schema:
-      providerType: Redshift
+      providerType: Trino
       fields:
       - name: id
         dataType:
@@ -463,7 +463,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_orders:
     name: raw_orders
     schema:
-      providerType: Redshift
+      providerType: Trino
       fields:
       - name: id
         dataType:
@@ -485,7 +485,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_payments:
     name: raw_payments
     schema:
-      providerType: Redshift
+      providerType: Trino
       fields:
       - name: id
         dataType:
@@ -515,7 +515,7 @@ sqlSources:
     tables:
     - name: customers
       schema:
-        providerType: redshift
+        providerType: trino
         fields:
         - name: customer_id
           dataType:
@@ -543,7 +543,7 @@ sqlSources:
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
-        providerType: redshift
+        providerType: trino
         fields:
         - name: listid
           dataType:
@@ -582,7 +582,7 @@ sqlSources:
     tables:
     - name: listing
       schema:
-        providerType: redshift
+        providerType: trino
         fields:
         - name: listid
           dataType:
@@ -626,7 +626,7 @@ sqlSources:
     tables:
     - name: customer
       schema:
-        providerType: redshift
+        providerType: trino
         fields:
         - name: c_custkey
           dataType:

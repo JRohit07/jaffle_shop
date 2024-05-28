@@ -7,7 +7,7 @@
     "path" : "",
     "editable" : true
   },
-  "providerType" : "redshift",
+  "providerType" : "trino",
   "fabricId" : "2811",
   "prophecyIDEFolder" : {
     "name" : "",

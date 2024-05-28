@@ -34,7 +34,7 @@
         "outputs" : [ {
           "id" : "HqrBVs7i",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Trino",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -97,7 +97,7 @@
         "inputs" : [ {
           "id" : "yp5daCxi",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Trino",
             "fields" : [ {
               "name" : "id",
               "dataType" : {

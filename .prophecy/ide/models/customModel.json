@@ -34,7 +34,7 @@
         "outputs" : [ {
           "id" : "UcegMfNP",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -99,7 +99,7 @@
         "inputs" : [ {
           "id" : "hTHJsojV",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -260,7 +260,7 @@
         }, {
           "id" : "LWhFPOjk",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "trino",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
