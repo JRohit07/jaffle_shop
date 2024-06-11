@@ -44,7 +44,6 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
-  businessRules: {}
 subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/stg_orders:
@@ -425,7 +424,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/ramdomseed:
     name: ramdomseed
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: id
         dataType:
@@ -444,7 +443,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_customers:
     name: raw_customers
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: id
         dataType:
@@ -463,7 +462,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_orders:
     name: raw_orders
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: id
         dataType:
@@ -485,7 +484,7 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_payments:
     name: raw_payments
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: id
         dataType:
@@ -515,60 +514,15 @@ sqlSources:
     tables:
     - name: customers
       schema:
-        providerType: redshift
-        fields:
-        - name: customer_id
-          dataType:
-            type: Integer
-        - name: first_name
-          dataType:
-            type: String
-        - name: last_name
-          dataType:
-            type: String
-        - name: first_order
-          dataType:
-            type: Date
-        - name: most_recent_order
-          dataType:
-            type: Date
-        - name: number_of_orders
-          dataType:
-            type: Bigint
-        - name: customer_lifetime_value
-          dataType:
-            type: Bigint
+        providerType: databricks
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
-        providerType: redshift
-        fields:
-        - name: listid
-          dataType:
-            type: Integer
-        - name: sellerid
-          dataType:
-            type: Integer
-        - name: eventid
-          dataType:
-            type: Integer
-        - name: dateid
-          dataType:
-            type: SmallInt
-        - name: numtickets
-          dataType:
-            type: SmallInt
-        - name: priceperticket
-          dataType:
-            type: Decimal
-        - name: totalprice
-          dataType:
-            type: Decimal
-        - name: listtime
-          dataType:
-            type: Timestamp
+        providerType: databricks
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:08:51'
@@ -582,32 +536,8 @@ sqlSources:
     tables:
     - name: listing
       schema:
-        providerType: redshift
-        fields:
-        - name: listid
-          dataType:
-            type: Integer
-        - name: sellerid
-          dataType:
-            type: Integer
-        - name: eventid
-          dataType:
-            type: Integer
-        - name: dateid
-          dataType:
-            type: SmallInt
-        - name: numtickets
-          dataType:
-            type: SmallInt
-        - name: priceperticket
-          dataType:
-            type: Decimal
-        - name: totalprice
-          dataType:
-            type: Decimal
-        - name: listtime
-          dataType:
-            type: Timestamp
+        providerType: databricks
+        fields: []
       description: This dataset is a comprehensive representation of the listings
         available on the platform, including the seller ID, event ID, date ID, number
         of tickets, price per ticket, total price, and listing time. This data is
@@ -626,32 +556,8 @@ sqlSources:
     tables:
     - name: customer
       schema:
-        providerType: redshift
-        fields:
-        - name: c_custkey
-          dataType:
-            type: Bigint
-        - name: c_name
-          dataType:
-            type: String
-        - name: c_address
-          dataType:
-            type: String
-        - name: c_nationkey
-          dataType:
-            type: Integer
-        - name: c_phone
-          dataType:
-            type: Char
-        - name: c_acctbal
-          dataType:
-            type: Decimal
-        - name: c_mktsegment
-          dataType:
-            type: Char
-        - name: c_comment
-          dataType:
-            type: String
+        providerType: databricks
+        fields: []
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:43'
