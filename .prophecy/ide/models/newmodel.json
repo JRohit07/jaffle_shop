@@ -37,7 +37,7 @@
         "inputs" : [ {
           "id" : "OTwINXMb",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -85,7 +85,7 @@
         "outputs" : [ {
           "id" : "zbpltWje",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -151,7 +151,7 @@
         "inputs" : [ {
           "id" : "iIyxzSBE",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -203,7 +203,7 @@
         }, {
           "id" : "q67waL47",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -256,7 +256,7 @@
         "outputs" : [ {
           "id" : "BgFLcjD4",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -328,7 +328,7 @@
         "inputs" : [ {
           "id" : "pTupJAEa",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -376,7 +376,7 @@
         "outputs" : [ {
           "id" : "dyqlkExN",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -486,7 +486,7 @@
         "inputs" : [ {
           "id" : "I1VoST2p",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -534,7 +534,7 @@
         "outputs" : [ {
           "id" : "JeYRvE61",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -604,7 +604,7 @@
         "inputs" : [ {
           "id" : "vWJMUKZV",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -652,7 +652,7 @@
         "outputs" : [ {
           "id" : "tCKoxiBr",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -720,7 +720,7 @@
         "outputs" : [ {
           "id" : "H9XIi0tO",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -792,7 +792,7 @@
         "inputs" : [ {
           "id" : "GlQITRAk",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -845,7 +845,7 @@
         "outputs" : [ {
           "id" : "qWljCpfb",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -960,7 +960,7 @@
         "inputs" : [ {
           "id" : "L0OA4TnB",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1008,7 +1008,7 @@
         "outputs" : [ {
           "id" : "tCE3dKXe",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1085,7 +1085,7 @@
         "inputs" : [ {
           "id" : "x7uexPK5",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1138,7 +1138,7 @@
         "outputs" : [ {
           "id" : "OZHCf6mo",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1208,7 +1208,7 @@
         "inputs" : [ {
           "id" : "VHErYq2b",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1261,7 +1261,7 @@
         "outputs" : [ {
           "id" : "kVUnvWZH",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1331,7 +1331,7 @@
         "inputs" : [ {
           "id" : "m05G20k1",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1384,7 +1384,7 @@
         "outputs" : [ {
           "id" : "upgJMdii",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1460,7 +1460,7 @@
         "inputs" : [ {
           "id" : "r7UemJMB",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1513,7 +1513,7 @@
         "outputs" : [ {
           "id" : "fJcYgkqx",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1583,7 +1583,7 @@
         "inputs" : [ {
           "id" : "Yk0mh34e",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1631,7 +1631,7 @@
         "outputs" : [ {
           "id" : "cIVsMQX6",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1696,7 +1696,7 @@
         "inputs" : [ {
           "id" : "MaAix8z7",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -1744,7 +1744,7 @@
         "outputs" : [ {
           "id" : "JHa6B9QK",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {

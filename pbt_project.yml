@@ -49,7 +49,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/stg_orders:
     name: stg_orders
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: order_id
         dataType:
@@ -79,7 +79,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/orders:
     name: orders
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: order_id
         dataType:
@@ -95,19 +95,19 @@ sqlModels:
           type: String
       - name: credit_card_amount
         dataType:
-          type: Bigint
+          type: Double
       - name: coupon_amount
         dataType:
-          type: Bigint
+          type: Double
       - name: bank_transfer_amount
         dataType:
-          type: Bigint
+          type: Double
       - name: gift_card_amount
         dataType:
-          type: Bigint
+          type: Double
       - name: amount
         dataType:
-          type: Bigint
+          type: Double
     description: This table has basic information about orders, as well as some derived
       facts based on payments
     author: jrohit+e2e@prophecy.io
@@ -125,7 +125,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/customers:
     name: customers
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: customer_id
         dataType:
@@ -147,7 +147,7 @@ sqlModels:
           type: Bigint
       - name: customer_lifetime_value
         dataType:
-          type: Bigint
+          type: Double
     description: This table has basic information about a customer, as well as some
       derived facts based on a customer's orders
     author: jrohit+e2e@prophecy.io
@@ -165,7 +165,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/Redshift_enhanced_experience_2:
     name: Redshift_enhanced_experience_2
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: number_of_orders
         dataType:
@@ -197,7 +197,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/stg_payments:
     name: stg_payments
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: payment_id
         dataType:
@@ -210,7 +210,7 @@ sqlModels:
           type: String
       - name: amount
         dataType:
-          type: Integer
+          type: Double
     description: null
     author: jrohit+e2e@prophecy.io
     files:
@@ -227,7 +227,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/customModel:
     name: customModel
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: listid
         dataType:
@@ -268,7 +268,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/stg_customers:
     name: stg_customers
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: customer_id
         dataType:
@@ -295,7 +295,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/Redshift_enhanced_experience_1:
     name: Redshift_enhanced_experience_1
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: first_name
         dataType:
@@ -305,25 +305,25 @@ sqlModels:
           type: String
       - name: first_order
         dataType:
-          type: String
+          type: Date
       - name: most_recent_order
         dataType:
-          type: String
+          type: Date
       - name: number_of_orders
         dataType:
-          type: String
+          type: Bigint
       - name: customer_lifetime_value
         dataType:
-          type: String
+          type: Float
       - name: credit_card_amount
         dataType:
-          type: Bigint
+          type: Float
       - name: order_date
         dataType:
           type: Date
       - name: gift_card_amount
         dataType:
-          type: Bigint
+          type: Float
       - name: customer_id
         dataType:
           type: Integer
@@ -332,16 +332,16 @@ sqlModels:
           type: String
       - name: bank_transfer_amount
         dataType:
-          type: Bigint
+          type: Float
       - name: order_id
         dataType:
           type: Integer
       - name: amount
         dataType:
-          type: Bigint
+          type: Float
       - name: coupon_amount
         dataType:
-          type: Bigint
+          type: Float
     description: null
     author: jrohit@prophecy.io
     files:
@@ -357,7 +357,7 @@ sqlModels:
   .prophecy/metadata/sqlmodels/newmodel:
     name: newmodel
     schema:
-      providerType: Redshift
+      providerType: Databricks
       fields:
       - name: listid
         dataType:
@@ -515,14 +515,59 @@ sqlSources:
     - name: customers
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: first_order
+          dataType:
+            type: Date
+        - name: most_recent_order
+          dataType:
+            type: Date
+        - name: number_of_orders
+          dataType:
+            type: Bigint
+        - name: customer_lifetime_value
+          dataType:
+            type: Bigint
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:09'
     - name: listing
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: listid
+          dataType:
+            type: Integer
+        - name: sellerid
+          dataType:
+            type: Integer
+        - name: eventid
+          dataType:
+            type: Integer
+        - name: dateid
+          dataType:
+            type: SmallInt
+        - name: numtickets
+          dataType:
+            type: SmallInt
+        - name: priceperticket
+          dataType:
+            type: Decimal
+        - name: totalprice
+          dataType:
+            type: Decimal
+        - name: listtime
+          dataType:
+            type: Timestamp
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:08:51'
@@ -537,7 +582,31 @@ sqlSources:
     - name: listing
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: listid
+          dataType:
+            type: Integer
+        - name: sellerid
+          dataType:
+            type: Integer
+        - name: eventid
+          dataType:
+            type: Integer
+        - name: dateid
+          dataType:
+            type: SmallInt
+        - name: numtickets
+          dataType:
+            type: SmallInt
+        - name: priceperticket
+          dataType:
+            type: Decimal
+        - name: totalprice
+          dataType:
+            type: Decimal
+        - name: listtime
+          dataType:
+            type: Timestamp
       description: This dataset is a comprehensive representation of the listings
         available on the platform, including the seller ID, event ID, date ID, number
         of tickets, price per ticket, total price, and listing time. This data is
@@ -557,7 +626,31 @@ sqlSources:
     - name: customer
       schema:
         providerType: databricks
-        fields: []
+        fields:
+        - name: c_custkey
+          dataType:
+            type: Bigint
+        - name: c_name
+          dataType:
+            type: String
+        - name: c_address
+          dataType:
+            type: String
+        - name: c_nationkey
+          dataType:
+            type: Integer
+        - name: c_phone
+          dataType:
+            type: String
+        - name: c_acctbal
+          dataType:
+            type: Decimal
+        - name: c_mktsegment
+          dataType:
+            type: String
+        - name: c_comment
+          dataType:
+            type: String
       description: null
       author: jrohit+e2e@prophecy.io
       createdAt: '2023-08-14 11:02:43'

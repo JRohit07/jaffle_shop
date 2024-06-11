@@ -35,7 +35,7 @@
         "outputs" : [ {
           "id" : "Uabi7hD6",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
               "dataType" : {
@@ -54,7 +54,7 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Double"
               }
             } ]
           },
@@ -82,7 +82,7 @@
         "outputs" : [ {
           "id" : "p4ukDnN5",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -170,7 +170,7 @@
         "inputs" : [ {
           "id" : "mOmqhHEy",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -197,7 +197,7 @@
         }, {
           "id" : "iocCqoPl",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -206,27 +206,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "total_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -235,7 +235,7 @@
         "outputs" : [ {
           "id" : "QXFULiI0",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -259,27 +259,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -311,7 +311,7 @@
         "inputs" : [ {
           "id" : "qGa9MEx3",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -335,27 +335,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -364,7 +364,7 @@
         "outputs" : [ {
           "id" : "UXvoWfRg",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -388,27 +388,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -467,7 +467,7 @@
         "inputs" : [ {
           "id" : "KOyFTyu7",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
               "dataType" : {
@@ -486,7 +486,7 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Double"
               }
             } ]
           },
@@ -495,7 +495,7 @@
         "outputs" : [ {
           "id" : "uYk2NK6y",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -504,27 +504,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "total_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },

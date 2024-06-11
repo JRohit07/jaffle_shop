@@ -34,7 +34,7 @@
         "outputs" : [ {
           "id" : "Fsn71xcM",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -97,7 +97,7 @@
         "inputs" : [ {
           "id" : "BEWpyRi6",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -125,7 +125,7 @@
         "outputs" : [ {
           "id" : "koM2MqH0",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -176,7 +176,7 @@
         "inputs" : [ {
           "id" : "u9bI47AA",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -204,7 +204,7 @@
         "outputs" : [ {
           "id" : "K9b5Yd7h",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {

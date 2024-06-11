@@ -34,7 +34,7 @@
         "outputs" : [ {
           "id" : "HqrBVs7i",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -97,7 +97,7 @@
         "inputs" : [ {
           "id" : "yp5daCxi",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
@@ -125,7 +125,7 @@
         "outputs" : [ {
           "id" : "FvP3F3Rc",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
               "dataType" : {
@@ -144,7 +144,7 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Double"
               }
             } ]
           },
@@ -176,7 +176,7 @@
         "inputs" : [ {
           "id" : "asSBuZZq",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
               "dataType" : {
@@ -195,7 +195,7 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Double"
               }
             } ]
           },
@@ -204,7 +204,7 @@
         "outputs" : [ {
           "id" : "v4urSoOo",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "payment_id",
               "dataType" : {
@@ -223,7 +223,7 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Double"
               }
             } ]
           },

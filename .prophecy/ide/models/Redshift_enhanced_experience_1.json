@@ -32,7 +32,7 @@
         "outputs" : [ {
           "id" : "YrRz_arN7dcxuek8nEHkx",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -66,7 +66,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -98,7 +98,7 @@
         "outputs" : [ {
           "id" : "gminoWPB5eatQQONAtoyN",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -122,27 +122,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -172,7 +172,7 @@
         "inputs" : [ {
           "id" : "uSJMDOVBbr9i9POf0waFO$$5IgxD0q2XAADrFs2tXzST",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -206,7 +206,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -215,7 +215,7 @@
         "outputs" : [ {
           "id" : "SrqZo3lFMQ947DQfl3iOF$$g_KjE4X--AFFd2coRNyZj",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -249,7 +249,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -313,7 +313,7 @@
         "inputs" : [ {
           "id" : "Wi5XyPOIMRT6OsACm9zLe$$wGSjPlN4iH5MHiMccpoAJ",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -347,7 +347,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -356,7 +356,7 @@
         "outputs" : [ {
           "id" : "NW5b-tqRFBMXG11B9UL7N$$fkBqyo92lLKIPCGOSg2At",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -390,7 +390,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -424,7 +424,7 @@
         "inputs" : [ {
           "id" : "hl8afFhs",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "first_name",
               "dataType" : {
@@ -438,27 +438,27 @@
             }, {
               "name" : "first_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "most_recent_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "number_of_orders",
               "dataType" : {
-                "type" : "String"
+                "type" : "Bigint"
               }
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "String"
+                "type" : "Float"
               }
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_date",
@@ -468,7 +468,7 @@
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "customer_id",
@@ -483,7 +483,7 @@
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_id",
@@ -493,12 +493,12 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -507,7 +507,7 @@
         "outputs" : [ {
           "id" : "PeEHve65",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "first_name",
               "dataType" : {
@@ -521,27 +521,27 @@
             }, {
               "name" : "first_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "most_recent_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "number_of_orders",
               "dataType" : {
-                "type" : "String"
+                "type" : "Bigint"
               }
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "String"
+                "type" : "Float"
               }
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_date",
@@ -551,7 +551,7 @@
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "customer_id",
@@ -566,7 +566,7 @@
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_id",
@@ -576,12 +576,12 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -694,7 +694,7 @@
         "inputs" : [ {
           "id" : "KFmJqPj1f-k_QJLQ3NdUF$$Mt3n6x9RF30rmuaXWhQKw",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "order_id",
               "dataType" : {
@@ -718,27 +718,27 @@
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Double"
               }
             } ]
           },
@@ -746,7 +746,7 @@
         }, {
           "id" : "Y-k-UAQo2XvK1-QZquFhY$$P--AouGvcTALsd3qoPycl",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
               "dataType" : {
@@ -780,7 +780,7 @@
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },
@@ -789,7 +789,7 @@
         "outputs" : [ {
           "id" : "zlGJ1I-8bXI4-74Tnl2Fs$$Na8So-4xw-BYjgnpxQZoJ",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "first_name",
               "dataType" : {
@@ -803,27 +803,27 @@
             }, {
               "name" : "first_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "most_recent_order",
               "dataType" : {
-                "type" : "String"
+                "type" : "Date"
               }
             }, {
               "name" : "number_of_orders",
               "dataType" : {
-                "type" : "String"
+                "type" : "Bigint"
               }
             }, {
               "name" : "customer_lifetime_value",
               "dataType" : {
-                "type" : "String"
+                "type" : "Float"
               }
             }, {
               "name" : "credit_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_date",
@@ -833,7 +833,7 @@
             }, {
               "name" : "gift_card_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "customer_id",
@@ -848,7 +848,7 @@
             }, {
               "name" : "bank_transfer_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "order_id",
@@ -858,12 +858,12 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             }, {
               "name" : "coupon_amount",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Float"
               }
             } ]
           },

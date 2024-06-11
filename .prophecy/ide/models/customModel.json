@@ -34,7 +34,7 @@
         "outputs" : [ {
           "id" : "UcegMfNP",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -99,7 +99,7 @@
         "inputs" : [ {
           "id" : "hTHJsojV",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -147,7 +147,7 @@
         "outputs" : [ {
           "id" : "Qpl10RZc",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -213,7 +213,7 @@
         "inputs" : [ {
           "id" : "KhtMb4wU",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -260,7 +260,7 @@
         }, {
           "id" : "LWhFPOjk",
           "schema" : {
-            "providerType" : "redshift",
+            "providerType" : "databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -308,7 +308,7 @@
         "outputs" : [ {
           "id" : "XfjsEkZs",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -379,7 +379,7 @@
         "inputs" : [ {
           "id" : "HouRoXxN",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
@@ -427,7 +427,7 @@
         "outputs" : [ {
           "id" : "g7EVakwF",
           "schema" : {
-            "providerType" : "Redshift",
+            "providerType" : "Databricks",
             "fields" : [ {
               "name" : "listid",
               "dataType" : {
